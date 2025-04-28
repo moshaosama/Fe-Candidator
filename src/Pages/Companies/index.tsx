@@ -1,5 +1,11 @@
+import SearchBar from "../../Components/SearchBar";
+
 const Companies = () => {
-  return <div>Companies</div>;
+  return (
+    <>
+      <SearchBar Title="Add Company" />
+    </>
+  );
 };
 
 export default Companies;
