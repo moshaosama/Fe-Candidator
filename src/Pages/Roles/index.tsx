@@ -1,5 +1,11 @@
+import SearchBar from "../../Components/SearchBar";
+
 const Roles = () => {
-  return <div>Roles</div>;
+  return (
+    <>
+      <SearchBar Title="Add Role" />
+    </>
+  );
 };
 
 export default Roles;
