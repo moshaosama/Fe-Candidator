@@ -1,0 +1,57 @@
+import { createBrowserRouter, RouterProvider } from "react-router";
+import MainLayout from "../Layout/MainLayout";
+import Users from "../Pages/Users";
+import Tasks from "../Pages/Tasks";
+import Accounts from "../Pages/Account";
+import Candidates from "../Pages/Candidates";
+import Companies from "../Pages/Companies";
+import Contacts from "../Pages/Contacts";
+import Roles from "../Pages/Roles";
+import Recruiters from "../Pages/Recruiters";
+
+const RouterPages = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainLayout />,
+      errorElement: <h1 className="text-white">Error</h1>,
+      children: [
+        {
+          index: true,
+          element: <Users />,
+        },
+        {
+          path: "tasks",
+          element: <Tasks />,
+        },
+        {
+          path: "accounts",
+          element: <Accounts />,
+        },
+        {
+          path: "candidates",
+          element: <Candidates />,
+        },
+        {
+          path: "companies",
+          element: <Companies />,
+        },
+        {
+          path: "recruiters",
+          element: <Recruiters />,
+        },
+        {
+          path: "contacts",
+          element: <Contacts />,
+        },
+        {
+          path: "roles",
+          element: <Roles />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router}></RouterProvider>;
+};
+
+export default RouterPages;
