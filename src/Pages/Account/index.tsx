@@ -1,5 +1,11 @@
+import SearchBar from "../../Components/SearchBar";
+
 const Accounts = () => {
-  return <div>Accounts</div>;
+  return (
+    <>
+      <SearchBar Title="Add Account" />
+    </>
+  );
 };
 
 export default Accounts;
