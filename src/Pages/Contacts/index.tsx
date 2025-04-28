@@ -1,7 +1,11 @@
-
+import SearchBar from "../../Components/SearchBar";
 
 const Contacts = () => {
-  return <div>Contacts</div>;
+  return (
+    <>
+      <SearchBar Title="Add Contact" />
+    </>
+  );
 };
 
 export default Contacts;
