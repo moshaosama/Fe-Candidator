@@ -1,7 +1,9 @@
+import SearchBar from "../../Components/SearchBar";
+
 const Tasks = () => {
   return (
     <div>
-      <h1>Tasks</h1>
+      <SearchBar Title="Add Task" />
     </div>
   );
 };
