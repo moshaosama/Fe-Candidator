@@ -1,5 +1,11 @@
+import SearchBar from "../../Components/SearchBar";
+
 const Candidates = () => {
-  return <div>Candidates</div>;
+  return (
+    <>
+      <SearchBar Title="Add Candidate" />
+    </>
+  );
 };
 
 export default Candidates;
