@@ -1,7 +1,9 @@
+import MainLayout from "./Layout/MainLayout";
+
 function App() {
   return (
     <>
-      <h1 className="text-white">Mosha</h1>
+      <MainLayout />
     </>
   );
 }
