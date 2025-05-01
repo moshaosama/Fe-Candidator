@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { Outlet } from "react-router";
+import { clsx } from "clsx";
+import { useDashboardContext } from "../../Components/Dashboard/Context/DashboardContext";
 
 interface SplitLayoutProps {
   children: [ReactNode, ReactNode];
@@ -7,12 +9,15 @@ interface SplitLayoutProps {
 
 const SplitLayout = ({ children }: SplitLayoutProps) => {
   const [Dashboard, Sidebar] = children;
+  const { Active } = useDashboardContext();
 
   return (
     <div className="flex gap-10">
       <div
-        className="w-20 transition-all duration-700 border-white border-1 h-[50pc] mx-3 my-5 flex justify-center rounded-2xl bg-gradient-to-b from-purple-700 to-10%"
-        id="Sidebar"
+        className={clsx(
+          "transition-all duration-700 border-white border-1 h-[50pc] mx-3 my-5 flex justify-center rounded-2xl bg-gradient-to-b from-purple-700 to-10%",
+          Active === "Active" ? "w-56" : "w-20"
+        )}
       >
         {Sidebar}
       </div>
