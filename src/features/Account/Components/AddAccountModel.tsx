@@ -1,8 +1,4 @@
-interface AddAcountModelProps {
-  handleClick: () => void;
-}
 import * as motion from "motion/react-client";
-
 import { CgMail } from "react-icons/cg";
 import { RiAppsLine } from "react-icons/ri";
 import { SiGmail } from "react-icons/si";
@@ -19,7 +15,19 @@ const box = {
   cursor: "pointer",
 };
 
-const AddAccountModel = ({ handleClick }: AddAcountModelProps) => {
+interface AddAcountModelProps {
+  handleClickModel: () => void;
+  handleAddModelGoogle: () => void;
+}
+
+const AddAccountModel = ({
+  handleClickModel,
+  handleAddModelGoogle,
+}: AddAcountModelProps) => {
+  const AddModelGoogleMethod = () => {
+    handleClickModel();
+    handleAddModelGoogle();
+  };
   return (
     <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#030303b3]">
       <h1 className="text-gray-300 text-2xl">Add New Account</h1>
@@ -28,6 +36,7 @@ const AddAccountModel = ({ handleClick }: AddAcountModelProps) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.8 }}
           style={box}
+          onClick={AddModelGoogleMethod}
         >
           <div className="absolute right-0 bottom-0 z-0">
             <SiGmail className="text-8xl text-gray-700" />
@@ -47,7 +56,7 @@ const AddAccountModel = ({ handleClick }: AddAcountModelProps) => {
           style={box}
         >
           <div className="absolute right-0 bottom-0">
-            <RiAppsLine className="text-8xl text-gray-700" /> 
+            <RiAppsLine className="text-8xl text-gray-700" />
           </div>
           <div className="m-3 z-50 flex flex-col gap-2">
             <RiAppsLine className="bg-blue-800 text-white text-3xl p-1 rounded-lg" />
@@ -60,7 +69,7 @@ const AddAccountModel = ({ handleClick }: AddAcountModelProps) => {
         </motion.div>
       </div>
       <div className="w-80 flex justify-end text-white">
-        <h1 className="cursor-pointer" onClick={handleClick}>
+        <h1 className="cursor-pointer" onClick={handleClickModel}>
           Cancel
         </h1>
       </div>
