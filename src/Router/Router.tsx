@@ -10,6 +10,7 @@ import Roles from "../Pages/Roles";
 import Recruiters from "../Pages/Recruiters";
 import AddAccountProvider from "../features/Account/Context/AddAccountContext";
 import AddAccountByGoogleProvider from "../features/Account/Context/AddAccountByGoogleContext";
+import AddUserModelProvider from "../features/Users/Context/AddUserModelConext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -20,7 +21,11 @@ const RouterPages = () => {
       children: [
         {
           index: true,
-          element: <Users />,
+          element: (
+            <AddUserModelProvider>
+              <Users />
+            </AddUserModelProvider>
+          ),
         },
         {
           path: "tasks",
