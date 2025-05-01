@@ -11,7 +11,7 @@ import { RiGovernmentFill } from "react-icons/ri";
 import { TbCircleLetterMFilled } from "react-icons/tb";
 import { NavLink } from "react-router";
 import { clsx } from "clsx";
-import { useDashboardContext } from "../../Context/DashboardContext";
+import { useDashboardContext } from "../Dashboard/Context/DashboardContext";
 
 const Sidebar = () => {
   const { Active } = useDashboardContext();
