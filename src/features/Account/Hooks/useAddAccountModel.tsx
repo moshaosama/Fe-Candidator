@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 const useAddAccountModel = () => {
-  const [OpenModel, setOpenModel] = useState<boolean>(true);
+  const [OpenModel, setOpenModel] = useState<boolean>(false);
 
   const handleOpenModel = useCallback(() => {
     setOpenModel(!OpenModel);

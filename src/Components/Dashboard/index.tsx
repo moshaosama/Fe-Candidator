@@ -31,7 +31,8 @@ const Dashboard = () => {
       <OpenSidebarFactory Type={Active} onClick={handleClickActive} />
       <hr className="h-7 border-gray-500 border-1" />
       <h1 className="text-[19px] font-bold" key={pathname}>
-        {pathName.slice(1)}
+        {pathName.slice(1).charAt(0).toUpperCase() +
+          pathName.slice(2).toLowerCase()}
       </h1>
     </div>
   );

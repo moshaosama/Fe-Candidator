@@ -21,7 +21,7 @@ const box = {
 
 const AddAccountModel = ({ handleClick }: AddAcountModelProps) => {
   return (
-    <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#03030396]">
+    <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#030303b3]">
       <h1 className="text-gray-300 text-2xl">Add New Account</h1>
       <div className="flex gap-7 my-5">
         <motion.div
@@ -47,7 +47,7 @@ const AddAccountModel = ({ handleClick }: AddAcountModelProps) => {
           style={box}
         >
           <div className="absolute right-0 bottom-0">
-            <RiAppsLine className="text-8xl text-gray-700" />
+            <RiAppsLine className="text-8xl text-gray-700" /> 
           </div>
           <div className="m-3 z-50 flex flex-col gap-2">
             <RiAppsLine className="bg-blue-800 text-white text-3xl p-1 rounded-lg" />
