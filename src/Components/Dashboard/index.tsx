@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import OpenSidebarFactory from "../../Utils/OpenSidebarFactory";
-import { useDashboardContext } from "../../Context/DashboardContext";
+import { useDashboardContext } from "./Context/DashboardContext";
 
 const Dashboard = () => {
   const { pathname } = useLocation();
