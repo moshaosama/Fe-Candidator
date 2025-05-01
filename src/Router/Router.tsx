@@ -8,6 +8,8 @@ import Companies from "../Pages/Companies";
 import Contacts from "../Pages/Contacts";
 import Roles from "../Pages/Roles";
 import Recruiters from "../Pages/Recruiters";
+import AddAccountProvider from "../features/Account/Context/AddAccountContext";
+import AddAccountByGoogleProvider from "../features/Account/Context/AddAccountByGoogleContext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -26,7 +28,13 @@ const RouterPages = () => {
         },
         {
           path: "accounts",
-          element: <Accounts />,
+          element: (
+            <AddAccountProvider>
+              <AddAccountByGoogleProvider>
+                <Accounts />
+              </AddAccountByGoogleProvider>
+            </AddAccountProvider>
+          ),
         },
         {
           path: "candidates",
