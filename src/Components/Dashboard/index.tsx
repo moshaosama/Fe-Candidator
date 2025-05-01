@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import OpenSidebarFactory from "../../Utils/OpenSidebarFactory";
-import useDashboardInstructions from "./Hook/useDashboardInstructions";
+import { useDashboardContext } from "../../Context/DashboardContext";
 
 const Dashboard = () => {
   const { pathname } = useLocation();
   const [pathName, setPathName] = useState(pathname);
-  const { Active, handleClickActive } = useDashboardInstructions();
+  const { Active, handleClickActive } = useDashboardContext();
 
   const SidebarElement = document.getElementById("Sidebar");
   useEffect(() => {
