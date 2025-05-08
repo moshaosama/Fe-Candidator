@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import RecruiterReducer from "../features/Recruiters/Reducer/Recruiter"
 
 
 export const store = configureStore({
     reducer: {
-
+        recruiter: RecruiterReducer
     }
 })
 
