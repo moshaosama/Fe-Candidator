@@ -1,5 +1,7 @@
+
 import LabelData from "../../../Components/LabelData";
 import { RecruiterData } from "../Data/Data";
+
 
 const LabelRecruiterData = () => {
     return (
