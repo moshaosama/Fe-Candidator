@@ -17,9 +17,8 @@ const recruiterSlice = createSlice({
         builder.addCase(fetchCreateRecruiter.pending, (state) => {
             state.isLoading = true;
         })
-        builder.addCase(fetchCreateRecruiter.fulfilled, (state, action) => {
+        builder.addCase(fetchCreateRecruiter.fulfilled, (state) => {
             state.isLoading = false;
-            state.recruiter = action.payload;
         })
         builder.addCase(fetchCreateRecruiter.rejected, (state, action) => {
             state.isLoading = false;
