@@ -11,9 +11,9 @@ const DisplayData = () => {
        {
         recruiter.map((recruiter: RecruiterData, index: number) => (
             <div className=" bg-[#272727ab] mt-3 py-5 px-4 rounded-lg cursor-pointer">
-                <div key={index} className="grid grid-cols-4 text-white">
+                <div key={index} className="grid grid-cols-4  text-white max-sm:text-[10px]">
                     <h1 className="flex items-center gap-2">
-                        <input id="Data" type="checkbox" className="w-4 h-4 rounded-full" />
+                        <input id="Data" type="checkbox" className="w-4 h-4 rounded-full max-sm:w-2 max-sm:h-2" />
                         {recruiter.FirstName}
                     </h1>
                     <h1>{recruiter.LastName}</h1>
