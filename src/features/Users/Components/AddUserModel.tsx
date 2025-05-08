@@ -61,7 +61,7 @@ const AddUserModel = () => {
           >
             Cancel
           </button>
-          <button className="bg-purple-200 w-32 cursor-pointer text-black font-bold px-3 rounded-xl py-1 border-1 ">
+          <button className="bg-purple-200  cursor-pointer text-black font-bold px-3 rounded-xl py-1 border-1 ">
             Add User
           </button>
         </div>
