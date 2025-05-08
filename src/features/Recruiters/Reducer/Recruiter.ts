@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCreateRecruiter } from "../Actions/createRecruiter";
+import { fetchGetRecruiter } from "../Actions/getRecruiters";
 
 const initialState = {
     recruiter: [],
@@ -21,6 +22,18 @@ const recruiterSlice = createSlice({
             state.recruiter = action.payload;
         })
         builder.addCase(fetchCreateRecruiter.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload as string;
+        })
+
+        builder.addCase(fetchGetRecruiter.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(fetchGetRecruiter.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.recruiter = action.payload;
+        })
+        builder.addCase(fetchGetRecruiter.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.payload as string;
         })
