@@ -9,8 +9,8 @@ const LabelData = ({
   gap = "10px",
   margin = "40px",
 }: LabelDataProps) => {
-
-  // تعريف الأنماط داخل كائن styles
+  
+  
   const styles: { container: CSSProperties; item: CSSProperties } = {
     container: {
       display: display, 
@@ -25,9 +25,10 @@ const LabelData = ({
   };
 
   return (
-    <div style={styles.container} className="p-4">
+      <div style={styles.container} className="p-4">
       {labels.map((data, index) => (
-        <h1 key={index} style={styles.item}>
+        <h1 key={index} style={styles.item} className="flex items-center gap-2">
+          {data.name == "First Name" && <input type="checkbox" className="w-4 h-4 rounded-full" />}
           {data.name}
         </h1>
       ))}
