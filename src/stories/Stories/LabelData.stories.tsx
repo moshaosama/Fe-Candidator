@@ -14,7 +14,7 @@ export default meta;
 
 
 
-export const DisplayData = {
+export const labelData = {
     args: {
         labels: [
             {name: "First Name"},
