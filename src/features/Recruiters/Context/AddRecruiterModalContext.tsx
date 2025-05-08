@@ -33,4 +33,4 @@ export default AddRecruiterModalProvider;
 
 
 
-export const useAddRecruiterModalContext = () => useContext(AddRecruiterContext)
+export const useAddRecruiterModalContext = () => useContext(AddRecruiterContext);
