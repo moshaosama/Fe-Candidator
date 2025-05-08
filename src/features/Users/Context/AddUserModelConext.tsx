@@ -4,7 +4,7 @@ import { ContextProps } from "../../../Types/ContextType";
 const AddUserModelContext = createContext<any>(null);
 
 const AddUserModelProvider = ({ children }: ContextProps) => {
-  const [AddModel, setAddModel] = useState(true);
+  const [AddModel, setAddModel] = useState(false);
 
   const handleClickAddModel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
