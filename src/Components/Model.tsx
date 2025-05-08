@@ -21,7 +21,7 @@ const Model = ({ children, Header }: ModelProps) => {
     <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-[#030303b3]">
       <div
         className={clsk(
-          "bg-gradient-to-b  from-orange-950 from-5% to-indigo-950 to-95% w-[35pc] rounded-lg p-3 shadow-lg  shadow-orange-950 transition-all duration-600",
+          "bg-gradient-to-b max-sm:w-[42vh] from-orange-950 from-5% to-indigo-950 to-95% w-[35pc] rounded-lg p-3 shadow-lg  shadow-orange-950 transition-all duration-600",
           Open
             ? "opacity-100 scale-100 max-h-fit"
             : "opacity-0 scale-95 max-h-0"
