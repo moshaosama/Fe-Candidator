@@ -25,7 +25,7 @@ const LabelData = ({
   };
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className="p-4">
       {labels.map((data, index) => (
         <h1 key={index} style={styles.item}>
           {data.name}
