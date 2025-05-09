@@ -27,7 +27,7 @@ const SplitLayout = ({ children }: SplitLayoutProps) => {
         <SidebarResponsive/>
       </div>
       <div className="flex flex-col w-full mr-20">
-        <div className="rounded-2xl my-5 max-sm:w-[43vh] max-sm:mx-2 bg-gradient-to-r h-fit from-purple-700 to-50% border-1 border-white flex">
+        <div className="rounded-2xl my-5 max-sm:w-[50vh] max-sm:mx-2 bg-gradient-to-r h-fit from-purple-700 to-50% border-1 border-white flex">
           {Dashboard}
         </div>
         <div className="max-sm:mx-2">
