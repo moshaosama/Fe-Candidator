@@ -12,6 +12,7 @@ import AddAccountProvider from "../features/Account/Context/AddAccountContext";
 import AddAccountByGoogleProvider from "../features/Account/Context/AddAccountByGoogleContext";
 import AddUserModelProvider from "../features/Users/Context/AddUserModelConext";
 import AddRecruiterModalProvider from "../features/Recruiters/Context/AddRecruiterModalContext";
+import GetRecruiterIDProvider from "../features/Recruiters/Context/useGetRecruiterIDContext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -54,7 +55,9 @@ const RouterPages = () => {
           path: "recruiters",
           element: (
             <AddRecruiterModalProvider>
-              <Recruiters />
+              <GetRecruiterIDProvider>
+                <Recruiters />
+              </GetRecruiterIDProvider>
             </AddRecruiterModalProvider>
           ),
         },
