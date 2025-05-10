@@ -18,7 +18,7 @@ const SearchBar = ({
     <div className="flex justify-between">
       <input
         type="text"
-        className="border-gray-700 w-52 border-1 h-10 rounded-xl text-gray-400 text-sm px-2"
+        className="border-gray-700 w-52 max-sm:w-32 border-1 h-10 rounded-xl text-gray-400 text-sm px-2"
         placeholder="Search"
       />
       <div className="flex gap-2 items-center">
