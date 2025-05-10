@@ -5,7 +5,7 @@ interface SearchBarProps {
   Title: string;
   isDelete?: boolean;
   handleClick?: () => void;
-  handleDelete: () => void;
+  handleDelete?: () => void;
 }
 
 const SearchBar = ({
