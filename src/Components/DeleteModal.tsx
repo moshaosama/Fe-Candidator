@@ -9,7 +9,7 @@ const DeleteModal = ({ handleDelete }: DeleteModalProps) => {
     <>
       <button
         onClick={handleDelete}
-        className="flex items-center gap-3 hover:bg-red-500 hover:text-black border-purple-500 border-2 transition-all duration-300 text-white w-fit px-4 rounded-xl h-9 cursor-pointer"
+        className="flex items-center gap-3 hover:bg-red-500 hover:text-black border-purple-500 border-2 transition-all duration-300 text-white w-fit max-sm:px-2 px-4 rounded-xl h-9 cursor-pointer"
       >
         Delete <RiDeleteBin6Fill />
       </button>
