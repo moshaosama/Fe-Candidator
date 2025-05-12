@@ -1,4 +1,5 @@
 import SearchBar from "../../Components/SearchBar";
+import AddCompanyModal from "../../features/Companies/Components/AddCompanyModal";
 import LabelComaniesData from "../../features/Companies/Components/LabelComaniesData";
 
 const Companies = () => {
@@ -6,6 +7,7 @@ const Companies = () => {
     <>
       <SearchBar Title="Add Company" />
       <LabelComaniesData />
+      <AddCompanyModal />
     </>
   );
 };
