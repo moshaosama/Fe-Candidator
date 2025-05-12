@@ -1,12 +1,16 @@
 import Model from "../../../Components/Model";
 import { useAddCompanyModalContext } from "../Context/AddModalCompanyContext";
-
+import useFormData from "../Hooks/useFormData";
 const AddCompanyModal = () => {
   const { handleTriggerModal } = useAddCompanyModalContext();
+  const { register, handleSubmit, errors, onSubmit } = useFormData();
   return (
     <>
       <Model Header="Add New Company">
-        <form className="grid grid-cols-2 gap-2 mt-3">
+        <form
+          className="grid grid-cols-2 gap-2 mt-3"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <p className="text-lg flex flex-col col-span-1 gap-1">
             <label
               htmlFor="FirstName"
@@ -16,10 +20,15 @@ const AddCompanyModal = () => {
             </label>
             <input
               type="text"
-              name="FirstName"
               id="FirstName"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("FirstName", { required: "First Name is required" })}
             />
+            {errors.FirstName && (
+              <p className="text-red-500 text-sm">
+                {errors.FirstName.message as string}
+              </p>
+            )}
           </p>
           <p className="text-lg flex flex-col col-span-1 gap-1">
             <label
@@ -30,10 +39,15 @@ const AddCompanyModal = () => {
             </label>
             <input
               type="text"
-              name="LastName"
               id="LastName"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("LastName", { required: "Last Name is required" })}
             />
+            {errors.LastName && (
+              <p className="text-red-500 text-sm">
+                {errors.LastName.message as string}
+              </p>
+            )}
           </p>
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
@@ -43,9 +57,9 @@ const AddCompanyModal = () => {
               Language
             </label>
             <select
-              name="Language"
               id="Language"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Language", { required: "Language is required" })}
             >
               <option value="Language" selected>
                 Language
@@ -53,6 +67,11 @@ const AddCompanyModal = () => {
               <option value="En">En</option>
               <option value="Ar">Ar</option>
             </select>
+            {errors.Language && (
+              <p className="text-red-500 text-sm">
+                {errors.Language.message as string}
+              </p>
+            )}
           </p>
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
@@ -63,8 +82,15 @@ const AddCompanyModal = () => {
             </label>
             <input
               type="text"
+              id="Email"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Email", { required: "Email is required" })}
             />
+            {errors.Email && (
+              <p className="text-red-500 text-sm">
+                {errors.Email.message as string}
+              </p>
+            )}
           </p>
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
@@ -75,20 +101,31 @@ const AddCompanyModal = () => {
             </label>
             <input
               type="password"
+              id="Password"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Password", { required: "Password is required" })}
             />
+            {errors.Password && (
+              <p className="text-red-500 text-sm">
+                {errors.Password.message as string}
+              </p>
+            )}
           </p>
-          <p className="col-span-2 flex justify-end items-center gap-3 mt-5">
-            <button className="bg-purple-200 cursor-pointer hover:bg-purple-300 text-black font-bold px-3 rounded-xl py-1 border-1">
-              Add Company
-            </button>
+
+          <div className="col-span-2 mt-4 flex justify-end items-center gap-3">
             <button
-              className="border-purple-200 cursor-pointer  text-purple-200 px-3 rounded-xl py-1 border-1"
+              className="border-purple-200 cursor-pointer text-purple-200 px-3 rounded-xl py-1 border-1 "
               onClick={handleTriggerModal}
             >
               Cancel
             </button>
-          </p>
+            <button
+              type="submit"
+              className="bg-purple-200 cursor-pointer text-black font-bold px-3 rounded-xl py-1 border-1"
+            >
+              Add Company
+            </button>
+          </div>
         </form>
       </Model>
     </>
