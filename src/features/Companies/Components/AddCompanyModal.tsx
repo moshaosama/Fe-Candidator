@@ -1,6 +1,8 @@
 import Model from "../../../Components/Model";
+import { useAddCompanyModalContext } from "../Context/AddModalCompanyContext";
 
 const AddCompanyModal = () => {
+  const { handleTriggerModal } = useAddCompanyModalContext();
   return (
     <>
       <Model Header="Add New Company">
@@ -80,7 +82,10 @@ const AddCompanyModal = () => {
             <button className="bg-purple-200 cursor-pointer hover:bg-purple-300 text-black font-bold px-3 rounded-xl py-1 border-1">
               Add Company
             </button>
-            <button className="border-purple-200 cursor-pointer  text-purple-200 px-3 rounded-xl py-1 border-1">
+            <button
+              className="border-purple-200 cursor-pointer  text-purple-200 px-3 rounded-xl py-1 border-1"
+              onClick={handleTriggerModal}
+            >
               Cancel
             </button>
           </p>
