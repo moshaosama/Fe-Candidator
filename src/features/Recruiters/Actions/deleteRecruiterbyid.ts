@@ -6,7 +6,8 @@ export const fetchDeleteRecruiterById = createAsyncThunk(
   async (id: number, thunkAPI: any) => {
     try {
       const response = await axios.delete(
-        `https://be-candidator-production.up.railway.app/delete-recruiter-by-id/${id}`
+        // `https://be-candidator-production.up.railway.app/delete-recruiter-by-id/${id}`
+        `http://localhost:8000/delete-recruiter-by-id/${id}`
       );
       return response.data;
     } catch (err) {
