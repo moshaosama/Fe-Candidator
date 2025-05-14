@@ -4,7 +4,7 @@ import { ContextProps } from "../../../Types/ContextType";
 const AddOpenModelJobContext = createContext<any>(null);
 
 const AddOpenModelJobProvider = ({ children }: ContextProps) => {
-  const [openModel, setOpenModel] = useState(true);
+  const [openModel, setOpenModel] = useState(false);
   const handleOpenModel = useCallback(() => {
     setOpenModel(!openModel);
   }, [openModel]);
