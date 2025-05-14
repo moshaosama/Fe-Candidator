@@ -9,6 +9,7 @@ export interface CreateCompanyData {
 export interface CompanyData {
   company: {
     result: {
+      id: number;
       Email: string;
       Name: string;
       Language: string;
