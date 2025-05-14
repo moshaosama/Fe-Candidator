@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCreateCompany } from "../Actions/CreateCompany";
 import { fetchGetCompanies } from "../Actions/GetCompanies";
+import { fetchGetCompanyByID } from "../../Jobs/Actions/GetCompanyByID";
 
 const initialState = {
   company: {},
@@ -32,6 +33,17 @@ const CompanyReducer = createSlice({
       state.company = action.payload;
     });
     builder.addCase(fetchGetCompanies.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload as string;
+    });
+    builder.addCase(fetchGetCompanyByID.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchGetCompanyByID.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.company = action.payload;
+    });
+    builder.addCase(fetchGetCompanyByID.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload as string;
     });
