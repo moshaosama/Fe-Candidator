@@ -30,12 +30,12 @@ const LabelData = ({
           style={styles.item}
           className="flex items-center gap-2 max-sm:text-[10px]"
         >
-          {data.name == "First Name" && (
+          {data.name == "First Name" || data.name == "Name" ? (
             <input
               type="checkbox"
               className="w-4 h-4 max-sm:w-2 max-sm:h-2 rounded-full"
             />
-          )}
+          ) : null}
           {data.name}
         </h1>
       ))}
