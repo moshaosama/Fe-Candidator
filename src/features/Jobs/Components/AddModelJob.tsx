@@ -1,8 +1,13 @@
+import { option } from "motion/react-client";
 import Model from "../../../Components/Model";
+import { ContactData } from "../../Contact/Types/ContactData";
 import { useAddOpenModelJobContext } from "../Context/useAddOpenModelContext";
+import useGetContact from "../Hooks/useGetContact";
 
 const AddModelJob = () => {
   const { handleOpenModel } = useAddOpenModelJobContext();
+  const { Contact } = useGetContact();
+  console.log(Contact);
   return (
     <Model Header="Add Job">
       <form className="grid grid-cols-2 gap-5 mt-4">
@@ -106,11 +111,22 @@ const AddModelJob = () => {
           >
             Hiring Team Contact *
           </label>
-          <input
-            type="text"
+          <select
             id="Hiring Team"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
-          />
+          >
+            <option value="Hiring Team Contact">Hiring Team Contact</option>
+            {Contact?.contact?.result?.map(
+              (contact: ContactData, index: number) => (
+                <option
+                  value={contact.FirstName + " " + contact.LastName}
+                  key={index}
+                >
+                  {contact.FirstName + " " + contact.LastName}
+                </option>
+              )
+            )}
+          </select>
         </p>
         <div className="col-span-2 mt-4 flex justify-end items-center gap-3">
           <button
