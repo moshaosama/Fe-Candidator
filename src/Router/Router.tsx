@@ -14,6 +14,7 @@ import AddUserModelProvider from "../features/Users/Context/AddUserModelConext";
 import AddRecruiterModalProvider from "../features/Recruiters/Context/AddRecruiterModalContext";
 import GetRecruiterIDProvider from "../features/Recruiters/Context/useGetRecruiterIDContext";
 import AddModalCompanyProvider from "../features/Companies/Context/AddModalCompanyContext";
+import Jobs from "../Pages/Jobs";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -50,11 +51,20 @@ const RouterPages = () => {
         },
         {
           path: "companies",
-          element: (
-            <AddModalCompanyProvider>
-              <Companies />
-            </AddModalCompanyProvider>
-          ),
+          children: [
+            {
+              index: true,
+              element: (
+                <AddModalCompanyProvider>
+                  <Companies />
+                </AddModalCompanyProvider>
+              ),
+            },
+            {
+              path: ":companyId",
+              element: <Jobs />,
+            },
+          ],
         },
         {
           path: "recruiters",
