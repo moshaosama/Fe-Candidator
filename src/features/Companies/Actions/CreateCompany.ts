@@ -7,7 +7,8 @@ export const fetchCreateCompany = createAsyncThunk(
   async (data: CreateCompanyData, thunkAPI) => {
     try {
       const response = await axios.post(
-        "https://be-candidator-production.up.railway.app/create-company",
+        // "https://be-candidator-production.up.railway.app/create-company",
+        "http://localhost:8000/create-company",
         data
       );
       return response.data;
