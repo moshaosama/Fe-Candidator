@@ -16,6 +16,7 @@ import GetRecruiterIDProvider from "../features/Recruiters/Context/useGetRecruit
 import AddModalCompanyProvider from "../features/Companies/Context/AddModalCompanyContext";
 import Jobs from "../Pages/Jobs";
 import AddOpenModelJobProvider from "../features/Jobs/Context/useAddOpenModelContext";
+import { AddContactModalProvider } from "../features/Contact/Context/AddContactModalContext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -83,7 +84,11 @@ const RouterPages = () => {
         },
         {
           path: "contacts",
-          element: <Contacts />,
+          element: (
+            <AddContactModalProvider>
+              <Contacts />
+            </AddContactModalProvider>
+          ),
         },
         {
           path: "roles",
