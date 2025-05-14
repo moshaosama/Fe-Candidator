@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/store";
 import { fetchCreateCompany } from "../Actions/CreateCompany";
 import { useAddCompanyModalContext } from "../Context/AddModalCompanyContext";
+import { fetchGetCompanies } from "../Actions/GetCompanies";
 
 const useFormData = () => {
   const {
@@ -15,6 +16,7 @@ const useFormData = () => {
 
   const onSubmit = (data: any) => {
     dispatch(fetchCreateCompany(data));
+    dispatch(fetchGetCompanies());
     handleTriggerModal();
   };
 
