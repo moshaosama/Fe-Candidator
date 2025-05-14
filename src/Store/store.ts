@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import RecruiterReducer from "../features/Recruiters/Reducer/Recruiter";
 import CompanyReducer from "../features/Companies/Reducer/CompanyReducer";
-
 export const store = configureStore({
   reducer: {
     recruiter: RecruiterReducer,
