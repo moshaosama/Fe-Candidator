@@ -1,4 +1,4 @@
-import useGetContact from "../../Jobs/Hooks/useGetContact";
+import useGetContact from "../../Jobs/Hooks/useGetData";
 import { ContactData } from "../Types/ContactData";
 
 const DisplayData = () => {
