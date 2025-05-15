@@ -3,7 +3,7 @@ import AddRecruitwerModal from "../../features/Recruiters/Components/AddRecruitw
 import LabelRecruiterData from "../../features/Recruiters/Components/LabelRecruiterData";
 import { useAddRecruiterModalContext } from "../../features/Recruiters/Context/AddRecruiterModalContext";
 import useDeleteRecruiter from "../../features/Recruiters/Hooks/useDeleteRecruiter";
-
+import ToastNotify from "../../Components/ToastContainer";
 const Recruiters = () => {
   const { AddModal, handleClickAddModel } = useAddRecruiterModalContext();
   const { checked, handleChecked, handleDeleteRecruiterById } =
@@ -19,6 +19,7 @@ const Recruiters = () => {
       />
       <LabelRecruiterData checked={checked} handleChecked={handleChecked} />
       {AddModal && <AddRecruitwerModal />}
+      <ToastNotify />
     </>
   );
 };

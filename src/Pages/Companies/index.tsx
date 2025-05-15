@@ -1,5 +1,6 @@
 import NoData from "../../Components/NoData";
 import SearchBar from "../../Components/SearchBar";
+import ToastNotify from "../../Components/ToastContainer";
 import AddCompanyModal from "../../features/Companies/Components/AddCompanyModal";
 import LabelComaniesData from "../../features/Companies/Components/LabelComaniesData";
 import { useAddCompanyModalContext } from "../../features/Companies/Context/AddModalCompanyContext";
@@ -17,6 +18,7 @@ const Companies = () => {
         <LabelComaniesData />
       )}
       {isOpen && <AddCompanyModal />}
+      <ToastNotify />
     </>
   );
 };
