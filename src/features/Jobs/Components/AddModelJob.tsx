@@ -1,16 +1,19 @@
-import { option } from "motion/react-client";
 import Model from "../../../Components/Model";
 import { ContactData } from "../../Contact/Types/ContactData";
 import { useAddOpenModelJobContext } from "../Context/useAddOpenModelContext";
-import useGetContact from "../Hooks/useGetContact";
+import useFormData from "../Hooks/useFormData";
+import useGetContact from "../Hooks/useGetData";
 
 const AddModelJob = () => {
   const { handleOpenModel } = useAddOpenModelJobContext();
   const { Contact } = useGetContact();
-  console.log(Contact);
+  const { register, handleSubmit, errors, onSubmit } = useFormData();
   return (
     <Model Header="Add Job">
-      <form className="grid grid-cols-2 gap-5 mt-4">
+      <form
+        className="grid grid-cols-2 gap-5 mt-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <p className="col-span-2 flex flex-col gap-2">
           <label
             htmlFor="Title"
@@ -22,7 +25,13 @@ const AddModelJob = () => {
             type="text"
             id="Title"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("JobTitle", { required: "Job Title is required" })}
           />
+          {errors.JobTitle && (
+            <p className="text-red-500 text-sm">
+              {errors.JobTitle.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-2 flex flex-col gap-2">
           <label
@@ -34,7 +43,15 @@ const AddModelJob = () => {
           <textarea
             id="Description"
             className="bg-zinc-800 p-2 h-24 rounded-lg border-1 border-gray-500 text-white"
+            {...register("Description", {
+              required: "Description is required",
+            })}
           />
+          {errors.Description && (
+            <p className="text-red-500 text-sm">
+              {errors.Description.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-1 flex flex-col gap-2">
           <label
@@ -46,11 +63,19 @@ const AddModelJob = () => {
           <select
             id="Gender"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("Gender", {
+              required: "Gender is required",
+            })}
           >
             <option value="Gender">Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
+          {errors.Gender && (
+            <p className="text-red-500 text-sm">
+              {errors.Gender.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-1 flex flex-col gap-2">
           <label
@@ -63,7 +88,15 @@ const AddModelJob = () => {
             type="number"
             id="Nedded"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("NumNeeded", {
+              required: "Number Needed is required",
+            })}
           />
+          {errors.NumNeeded && (
+            <p className="text-red-500 text-sm">
+              {errors.NumNeeded.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-1 flex flex-col gap-2">
           <label
@@ -76,7 +109,15 @@ const AddModelJob = () => {
             type="text"
             id="Location"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("Location", {
+              required: "Location is required",
+            })}
           />
+          {errors.Location && (
+            <p className="text-red-500 text-sm">
+              {errors.Location.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-1 flex flex-col gap-2">
           <label
@@ -89,7 +130,15 @@ const AddModelJob = () => {
             type="text"
             id="Commitment"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("Commitment", {
+              required: "Commitment is required",
+            })}
           />
+          {errors.Commitment && (
+            <p className="text-red-500 text-sm">
+              {errors.Commitment.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-1 flex flex-col gap-2">
           <label
@@ -102,7 +151,15 @@ const AddModelJob = () => {
             type="text"
             id="Department"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("Department", {
+              required: "Department is required",
+            })}
           />
+          {errors.Department && (
+            <p className="text-red-500 text-sm">
+              {errors.Department.message as string}
+            </p>
+          )}
         </p>
         <p className="col-span-2 flex flex-col gap-2">
           <label
@@ -114,6 +171,9 @@ const AddModelJob = () => {
           <select
             id="Hiring Team"
             className="bg-zinc-800 p-2 rounded-lg border-1 border-gray-500 text-white"
+            {...register("Contact", {
+              required: "Hiring Team Contact is required",
+            })}
           >
             <option value="Hiring Team Contact">Hiring Team Contact</option>
             {Contact?.contact?.result?.map(
@@ -127,6 +187,11 @@ const AddModelJob = () => {
               )
             )}
           </select>
+          {errors.Contact && (
+            <p className="text-red-500 text-sm">
+              {errors.Contact.message as string}
+            </p>
+          )}
         </p>
         <div className="col-span-2 mt-4 flex justify-end items-center gap-3">
           <button
