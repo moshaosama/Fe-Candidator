@@ -1,18 +1,12 @@
 import LabelData from "../../../Components/LabelData";
-
-const LabelUser = [
-  {
-    name: "Email",
-  },
-  {
-    name: "Role"
-  }
-];
+import { LabelUser } from "../Data/LabelUserData";
+import DisplayData from "./DisplayData";
 
 const LabelUserData = () => {
   return (
     <>
       <LabelData labels={LabelUser} />
+      <DisplayData />
     </>
   );
 };
