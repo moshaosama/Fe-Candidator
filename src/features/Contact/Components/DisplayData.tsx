@@ -5,7 +5,7 @@ const DisplayData = () => {
   const { Contact } = useGetContact();
   return (
     <>
-      <div>
+      <div className="flex flex-col gap-4">
         {Contact?.contact?.result?.map(
           (contact: ContactData, index: number) => (
             <div
