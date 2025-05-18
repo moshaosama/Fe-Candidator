@@ -17,6 +17,7 @@ import AddModalCompanyProvider from "../features/Companies/Context/AddModalCompa
 import Jobs from "../Pages/Jobs";
 import AddOpenModelJobProvider from "../features/Jobs/Context/useAddOpenModelContext";
 import { AddContactModalProvider } from "../features/Contact/Context/AddContactModalContext";
+import { OpenAddModalCandidatorProvider } from "../features/Candidates/Context/OpenAddModalContext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -49,7 +50,11 @@ const RouterPages = () => {
         },
         {
           path: "candidates",
-          element: <Candidates />,
+          element: (
+            <OpenAddModalCandidatorProvider>
+              <Candidates />
+            </OpenAddModalCandidatorProvider>
+          ),
         },
         {
           path: "companies",
