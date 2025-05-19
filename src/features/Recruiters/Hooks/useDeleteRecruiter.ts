@@ -4,7 +4,7 @@ import { AppDispatch } from "../../../Store/store";
 import { useGetRecruiterIDContext } from "../Context/useGetRecruiterIDContext";
 import { fetchDeleteRecruiterById } from "../Actions/deleteRecruiterbyid";
 import { fetchGetRecruiter } from "../Actions/getRecruiters";
-import usetoastify from "../../../Hooks/usetoastify";
+import usetoastify from "../../../Hooks/useToastify";
 const useDeleteRecruiter = () => {
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
