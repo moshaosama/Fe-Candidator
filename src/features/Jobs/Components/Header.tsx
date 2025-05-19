@@ -2,7 +2,6 @@ import UseGetCompanyByID from "../Hooks/UseGetCompanyByID";
 
 const Header = () => {
   const { CompanyByID } = UseGetCompanyByID();
-  //   console.log(CompanyByID.company.result?.[0]?.Name);
   return (
     <div className="mt-16">
       <h1 className="text-white text-3xl font-bold">
