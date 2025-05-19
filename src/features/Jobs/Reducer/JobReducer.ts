@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetJobs } from "../Actions/GetJobs";
+import { fetchGetJobByID } from "../Actions/GetJobById";
 
 const initialState = {
   jobs: [],
@@ -26,4 +27,24 @@ const JobSlice = createSlice({
   },
 });
 
-export default JobSlice.reducer;
+const JobByIdSlice = createSlice({
+  name: "JobById",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchGetJobByID.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchGetJobByID.fulfilled, (state, action) => {
+      state.loading = false;
+      state.jobs = action.payload;
+    });
+    builder.addCase(fetchGetJobByID.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+  },
+});
+
+export const jobReducer = JobSlice.reducer;
+export const jobByIDReducer = JobByIdSlice.reducer;
