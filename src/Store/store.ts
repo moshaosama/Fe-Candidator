@@ -7,6 +7,7 @@ import {
   jobByIDReducer,
   jobReducer,
 } from "../features/Jobs/Reducer/JobReducer";
+import StagesReducer from "../features/Stages/Reducer/StageSlice";
 export const store = configureStore({
   reducer: {
     recruiter: RecruiterReducer,
@@ -15,6 +16,7 @@ export const store = configureStore({
     job: jobReducer,
     jobByid: jobByIDReducer,
     candidator: CandidatorReducer,
+    stages: StagesReducer,
   },
 });
 
