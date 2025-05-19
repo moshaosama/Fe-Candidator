@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetJobs } from "../Actions/GetJobs";
 import { fetchGetJobByID } from "../Actions/GetJobById";
+import { fetchUpdateCandidateinStage } from "../Actions/UpdateCandidateinStage";
 
 const initialState = {
   jobs: [],
@@ -21,6 +22,17 @@ const JobSlice = createSlice({
       state.jobs = action.payload;
     });
     builder.addCase(fetchGetJobs.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+    builder.addCase(fetchUpdateCandidateinStage.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchUpdateCandidateinStage.fulfilled, (state, action) => {
+      state.loading = false;
+      state.jobs = action.payload;
+    });
+    builder.addCase(fetchUpdateCandidateinStage.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
     });
