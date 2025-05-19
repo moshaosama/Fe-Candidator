@@ -27,7 +27,7 @@ const DisplayData = () => {
               <Link to={`jobs/${job.id}`}>
                 <div
                   key={job.id}
-                  className="p-4 bg-[#272727ab] rounded-lg text-white font-semibold max-sm:text-[10px] cursor-pointer"
+                  className="p-4 bg-[#272727ab] rounded-lg text-white font-semibold max-sm:text-[10px] cursor-pointer mt-3"
                 >
                   <div className="grid grid-cols-10  text-white font-semibold max-sm:text-[10px]">
                     <p>{job.JobTitle}</p>
