@@ -4,7 +4,7 @@ import { AppDispatch } from "../../../Store/store";
 import { fetchCreateRecruiter } from "../Actions/createRecruiter";
 import { fetchGetRecruiter } from "../Actions/getRecruiters";
 import { useAddRecruiterModalContext } from "../Context/AddRecruiterModalContext";
-import usetoastify from "../../../Hooks/usetoastify";
+import usetoastify from "../../../Hooks/useToastify";
 
 const useFormData = () => {
   const {
