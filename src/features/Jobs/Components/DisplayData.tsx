@@ -3,8 +3,6 @@ import { JobData } from "../Types/JobData";
 
 const DisplayData = () => {
   const { Jobs } = useGetData();
-  console.log(Jobs);
-
   return (
     <>
       {Jobs.jobs?.result?.map((job: JobData) => (
