@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import ButtonModel from "./ButtonModel";
 import DeleteModal from "./DeleteModal";
 
@@ -6,6 +7,7 @@ interface SearchBarProps {
   isDelete?: boolean;
   handleClick?: () => void;
   handleDelete?: () => void;
+  children?: ReactNode;
 }
 
 const SearchBar = ({
@@ -13,6 +15,7 @@ const SearchBar = ({
   handleClick,
   isDelete,
   handleDelete,
+  children,
 }: SearchBarProps) => {
   return (
     <div className="flex justify-between">
@@ -21,9 +24,12 @@ const SearchBar = ({
         className="border-gray-700 w-52 max-sm:w-32 border-1 h-10 rounded-xl text-gray-400 text-sm px-2"
         placeholder="Search"
       />
-      <div className="flex gap-2 items-center">
-        <ButtonModel Title={Title} handleClick={handleClick} />
-        {isDelete ? <DeleteModal handleDelete={handleDelete!} /> : null}
+      <div className="flex items-center gap-4">
+        <div className="text-gray-500 font-bold">{children}</div>
+        <div className="flex gap-2 items-center">
+          <ButtonModel Title={Title} handleClick={handleClick} />
+          {isDelete ? <DeleteModal handleDelete={handleDelete!} /> : null}
+        </div>
       </div>
     </div>
   );
