@@ -16,7 +16,7 @@ import { useDashboardContext } from "../Dashboard/Context/DashboardContext";
 const Sidebar = () => {
   const { Active } = useDashboardContext();
   return (
-    <div className="my-5 flex flex-col items-center gap-10">
+    <div className="my-5 flex flex-col  items-center gap-10">
       <TbCircleLetterMFilled className="text-white text-3xl" />
       <div className="text-white text-xl flex flex-col gap-7 ">
         <NavLink to={"/"} className="flex items-center gap-3 cursor-pointer">
