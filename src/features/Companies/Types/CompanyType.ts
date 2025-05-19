@@ -6,16 +6,18 @@ export interface CreateCompanyData {
   Language: string;
 }
 
+export interface Company {
+  id: number;
+  Email: string;
+  Name: string;
+  Language: string;
+  Jobs: {}[];
+  Tags: string;
+}
+
 export interface CompanyData {
   company: {
-    result: {
-      id: number;
-      Email: string;
-      Name: string;
-      Language: string;
-      Jobs: {}[];
-      Tags: string;
-    }[];
+    result: Company[];
   };
   isLoading: boolean;
   error: string;
