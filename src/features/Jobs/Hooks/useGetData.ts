@@ -3,6 +3,7 @@ import { AppDispatch, RootState } from "../../../Store/store";
 import { fetchGetContact } from "../../Contact/Actions/GetContact";
 import { useEffect } from "react";
 import { fetchGetJobs } from "../Actions/GetJobs";
+import UseGetCompanyByID from "./UseGetCompanyByID";
 
 const useGetData = () => {
   const Contact: any = useSelector((state: RootState) => state.contact);
