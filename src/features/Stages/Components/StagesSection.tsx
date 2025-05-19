@@ -34,7 +34,7 @@ const StagesSection = () => {
         </div>
         <div>
           {stages?.map((defStage: DefaultStage) => (
-            <div className="mb-4" key={defStage.id}>
+            <div className="mb-4 cursor-pointer" key={defStage.id}>
               <div className="flex justify-between items-center">
                 <h1 className="my-4 mx-4 cursor-pointer font-bold text-md">
                   {defStage.stageTitle}
