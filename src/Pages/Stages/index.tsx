@@ -6,14 +6,17 @@ import { useAddCandidateModelContext } from "../../features/Stages/Context/useAd
 import AddModelCandidate from "../../features/Stages/Components/AddModelCandidate";
 import useGetCandidateByStage from "../../features/Stages/Hooks/useGetCandidateByStage";
 import NoData from "../../Components/NoData";
+import { useAddStageModelContext } from "../../features/Stages/Context/useAddStageContext";
+import AddStageModel from "../../features/Stages/Components/AddStageModel";
 const Stages = () => {
   const { AddModal, handleClickAddModal } = useAddCandidateModelContext();
   const { candidatorByStage } = useGetCandidateByStage();
+  const { OpenModel, handleClickAddStageModel } = useAddStageModelContext();
   return (
     <>
       <Header />
       <div className="mt-4">
-        <SearchBar Title="Add Stages">
+        <SearchBar Title="Add Stages" handleClick={handleClickAddStageModel}>
           <h1 className="cursor-pointer" onClick={handleClickAddModal}>
             Add Candidate
           </h1>
@@ -30,6 +33,7 @@ const Stages = () => {
         )}
       </div>
       {AddModal && <AddModelCandidate />}
+      {OpenModel && <AddStageModel />}
     </>
   );
 };
