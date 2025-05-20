@@ -6,11 +6,11 @@ const DisplayData = () => {
     <>
       {candidatorByStage?.candidator?.result?.map(
         (candidate: any, index: number) => (
-          <div className="bg-[#272727ab] mt-4 py-5 px-4 rounded-lg cursor-pointer">
-            <div
-              className="grid grid-cols-6 text-white max-sm:text-[10px]"
-              key={index}
-            >
+          <div
+            className="bg-[#272727ab] mt-4 py-5 px-4 rounded-lg cursor-pointer"
+            key={index}
+          >
+            <div className="grid grid-cols-6 text-white max-sm:text-[10px]">
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
