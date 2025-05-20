@@ -1,7 +1,7 @@
 import { PiFlagBanner } from "react-icons/pi";
 import { useParams } from "react-router";
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
-
+import useGetCandidateByStage from "../Hooks/useGetCandidateByStage";
 interface DefaultStage {
   stageTitle: string;
   id: number;
@@ -18,6 +18,7 @@ const StagesSection = () => {
       ? JSON.parse(rawStages)
       : rawStages
     : [];
+  const { handleClick } = useGetCandidateByStage();
 
   return (
     <>
@@ -34,7 +35,11 @@ const StagesSection = () => {
         </div>
         <div>
           {stages?.map((defStage: DefaultStage) => (
-            <div className="mb-4 cursor-pointer" key={defStage.id}>
+            <div
+              className="mb-4 cursor-pointer"
+              key={defStage.id}
+              onClick={() => handleClick(defStage.stageTitle)}
+            >
               <div className="flex justify-between items-center">
                 <h1 className="my-4 mx-4 cursor-pointer font-bold text-md">
                   {defStage.stageTitle}
