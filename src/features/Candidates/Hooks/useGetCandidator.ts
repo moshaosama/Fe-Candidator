@@ -9,6 +9,7 @@ interface CandidatorData {
     result: {
       FirstName: string;
       LastName: string;
+      jobId: number;
     }[];
   };
   error: string;
