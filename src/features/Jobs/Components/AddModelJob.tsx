@@ -175,14 +175,16 @@ const AddModelJob = () => {
               required: "Hiring Team Contact is required",
             })}
           >
-            <option value="Hiring Team Contact">Hiring Team Contact</option>
             {Contact?.contact?.result?.map(
               (contact: ContactData, index: number) => (
                 <option
                   value={contact.FirstName + " " + contact.LastName}
                   key={index}
                 >
-                  {contact.FirstName + " " + contact.LastName}
+                  {contact.FirstName + " " + contact.LastName ==
+                  "Hiring Team Contact"
+                    ? "Hiring Team Contact"
+                    : contact.FirstName + " " + contact.LastName}
                 </option>
               )
             )}
