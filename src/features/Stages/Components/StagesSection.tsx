@@ -2,6 +2,7 @@ import { PiFlagBanner } from "react-icons/pi";
 import { useParams } from "react-router";
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import useGetCandidateByStage from "../Hooks/useGetCandidateByStage";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 interface DefaultStage {
   stageTitle: string;
   id: number;
@@ -19,7 +20,6 @@ const StagesSection = () => {
       : rawStages
     : [];
   const { handleClick } = useGetCandidateByStage();
-
   return (
     <>
       <div className="border-1 border-gray-600 w-72 h-[67vh] rounded-xl  text-white">
@@ -29,14 +29,14 @@ const StagesSection = () => {
             <h1 className="text-2xl">Stages</h1>
           </div>
           <div className="bg-gray-700 w-7 h-7 rounded-full flex justify-center items-center text-white">
-            0
+            {stages?.length}
           </div>
-          <hr className="mt-4 text-gray-500" />
+          <hr className=" text-gray-500" />
         </div>
         <div>
           {stages?.map((defStage: DefaultStage) => (
             <div
-              className="mb-4 cursor-pointer"
+              className="cursor-pointer hover:bg-[#3f37c9] rounded-xl hover:rounded-none transition-all duration-300"
               key={defStage.id}
               onClick={() => handleClick(defStage.stageTitle)}
             >
@@ -44,8 +44,17 @@ const StagesSection = () => {
                 <h1 className="my-4 mx-4 cursor-pointer font-bold text-md">
                   {defStage.stageTitle}
                 </h1>
-                <div className="bg-gray-700 w-7 h-7 rounded-full flex justify-center items-center text-white mr-4">
-                  0
+                <div className="flex items-center mr-4 gap-3">
+                  <div className="bg-gray-700 w-7 h-7 rounded-full flex justify-center items-center text-white">
+                    0
+                  </div>
+                  <div>
+                    {defStage.stageTitle === "Pending" ||
+                    defStage.stageTitle === "Hired" ||
+                    defStage.stageTitle === "Rejected" ? null : (
+                      <HiOutlineDotsVertical className="hover:bg-gray-700 rounded-full text-2xl p-1" />
+                    )}
+                  </div>
                 </div>
               </div>
               <hr className="mt-2 text-gray-500" />
