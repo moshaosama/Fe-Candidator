@@ -10,8 +10,14 @@ const useGetCandidateByStage = () => {
   );
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleClick = useCallback((stageTitle: string) => {
+  const handleClick = useCallback((stageTitle: string, e: any) => {
     setStageTitle(stageTitle);
+
+    document.querySelectorAll(".Active").forEach((el: any) => {
+      el.classList.remove("Active");
+    });
+
+    e.currentTarget.classList.add("Active");
   }, []);
   const { jobId } = useParams();
 
