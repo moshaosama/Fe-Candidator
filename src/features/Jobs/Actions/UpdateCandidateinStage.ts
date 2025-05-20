@@ -7,7 +7,7 @@ interface UpdateCandidateinStageData {
 }
 
 export const fetchUpdateCandidateinStage = createAsyncThunk(
-  "Jobs/fetchCreateCandidateinStage",
+  "Jobs/fetchUpdateCandidateinStage",
   async (Data: UpdateCandidateinStageData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
