@@ -4,8 +4,11 @@ import LabelStagesData from "../../features/Stages/Components/LabelStagesData";
 import StagesSection from "../../features/Stages/Components/StagesSection";
 import { useAddCandidateModelContext } from "../../features/Stages/Context/useAddCandidateModelContext";
 import AddModelCandidate from "../../features/Stages/Components/AddModelCandidate";
+import useGetCandidateByStage from "../../features/Stages/Hooks/useGetCandidateByStage";
+import NoData from "../../Components/NoData";
 const Stages = () => {
   const { AddModal, handleClickAddModal } = useAddCandidateModelContext();
+  const { candidatorByStage } = useGetCandidateByStage();
   return (
     <>
       <Header />
@@ -18,7 +21,13 @@ const Stages = () => {
       </div>
       <div className="flex gap-5 mt-3">
         <StagesSection />
-        <LabelStagesData />
+        {candidatorByStage?.candidator?.result?.length > 0 ? (
+          <LabelStagesData />
+        ) : (
+          <div className="w-full h-full flex justify-center items-center">
+            <NoData Title="Candidator" />
+          </div>
+        )}
       </div>
       {AddModal && <AddModelCandidate />}
     </>
