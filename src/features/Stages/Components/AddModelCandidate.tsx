@@ -28,7 +28,6 @@ const AddModelCandidate = () => {
                 required: "Candidate is required",
               })}
             >
-              <option value={"Candidates"}>Candidates</option>
               {Candidator.candidator.result?.map((candidate: any) => (
                 <option value={candidate.id} key={candidate.id}>
                   {candidate.FirstName} {candidate.LastName}
