@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import useGetCandidateByStage from "../Hooks/useGetCandidateByStage";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import DropDownStage from "./DropDownStage";
+import useOpenDropDown from "../Hooks/useOpenDropDown";
 interface DefaultStage {
   stageTitle: string;
   id: number;
@@ -20,6 +22,7 @@ const StagesSection = () => {
       : rawStages
     : [];
   const { handleClick } = useGetCandidateByStage();
+  const { openDropDown, handleOpenDropDown } = useOpenDropDown();
   return (
     <>
       <div className="border-1 border-gray-600 w-72 h-[67vh] rounded-xl  text-white">
@@ -33,7 +36,7 @@ const StagesSection = () => {
           </div>
           <hr className=" text-gray-500" />
         </div>
-        <div>
+        <div className="relative">
           {stages?.map((defStage: DefaultStage) => (
             <div
               className="cursor-pointer hover:bg-[#3f37c9] rounded-xl hover:rounded-none transition-all duration-300"
@@ -52,7 +55,10 @@ const StagesSection = () => {
                     {defStage.stageTitle === "Pending" ||
                     defStage.stageTitle === "Hired" ||
                     defStage.stageTitle === "Rejected" ? null : (
-                      <HiOutlineDotsVertical className="hover:bg-gray-700 rounded-full text-2xl p-1" />
+                      <HiOutlineDotsVertical
+                        className="hover:bg-gray-700 rounded-full text-2xl p-1"
+                        onClick={handleOpenDropDown}
+                      />
                     )}
                   </div>
                 </div>
@@ -60,6 +66,7 @@ const StagesSection = () => {
               <hr className="mt-2 text-gray-500" />
             </div>
           ))}
+          {openDropDown && <DropDownStage />}
         </div>
       </div>
     </>
