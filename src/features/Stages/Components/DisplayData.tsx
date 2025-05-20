@@ -2,8 +2,6 @@ import useGetCandidateByStage from "../Hooks/useGetCandidateByStage";
 const DisplayData = () => {
   const { candidatorByStage } = useGetCandidateByStage();
 
-  console.log(candidatorByStage?.candidator?.result);
-
   return (
     <>
       {candidatorByStage?.candidator?.result?.map(
