@@ -38,7 +38,7 @@ const StagesSection = () => {
             <div
               className="cursor-pointer hover:bg-[#3f37c9] rounded-xl hover:rounded-none transition-all duration-300"
               key={defStage.id}
-              onClick={() => handleClick(defStage.stageTitle)}
+              onClick={(e: any) => handleClick(defStage.stageTitle, e)}
             >
               <div className="flex justify-between items-center">
                 <h1 className="my-4 mx-4 cursor-pointer font-bold text-md">
