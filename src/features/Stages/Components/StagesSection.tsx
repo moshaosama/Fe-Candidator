@@ -1,5 +1,5 @@
 import { PiFlagBanner } from "react-icons/pi";
-import { useParams } from "react-router";
+
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import useGetCandidateByStage from "../Hooks/useGetCandidateByStage";
 import { HiOutlineDotsVertical } from "react-icons/hi";
@@ -11,10 +11,7 @@ interface DefaultStage {
 }
 
 const StagesSection = () => {
-  const { jobId } = useParams();
-
-  const { jobByID } = useGetJobById(Number(jobId));
-
+  const { jobByID } = useGetJobById();
   const rawStages = jobByID?.jobs?.result?.[0]?.Stages;
   const stages = rawStages
     ? typeof rawStages === "string"

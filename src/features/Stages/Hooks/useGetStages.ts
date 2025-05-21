@@ -3,7 +3,6 @@ import { AppDispatch, RootState } from "../../../Store/store";
 import { useEffect } from "react";
 import { fetchGetStages } from "../Actions/GetStages";
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
-import { useParams } from "react-router";
 interface StageData {
   error: string;
   loading: boolean;
@@ -21,9 +20,8 @@ const useGetStages = () => {
   useEffect(() => {
     dispatch(fetchGetStages());
   }, [dispatch]);
-  const { jobId } = useParams();
 
-  const { jobByID } = useGetJobById(Number(jobId));
+  const { jobByID } = useGetJobById();
 
   const candidatesJson = jobByID.jobs.result?.[0]?.Candidates;
   //   console.log(candidatesJson);?
