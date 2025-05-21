@@ -1,10 +1,7 @@
-import { useParams } from "react-router";
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 
 const Header = () => {
-  const { jobId } = useParams();
-
-  const { jobByID } = useGetJobById(+jobId!);
+  const { jobByID } = useGetJobById();
 
   return (
     <>
