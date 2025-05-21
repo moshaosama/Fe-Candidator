@@ -6,7 +6,7 @@ import useAddCandidate from "../Hooks/useAddCandidate";
 const AddModelCandidate = () => {
   const { Candidator } = useGetCandidator();
   const { handleClickAddModal } = useAddCandidateModelContext();
-  const { register, handleSubmit, errors, onSubmit } = useAddCandidate();
+  const { register, handleSubmit, onSubmit } = useAddCandidate();
 
   const FilterCandidate = Candidator?.candidator?.result?.filter(
     (candidate) => candidate.jobId === null
