@@ -30,6 +30,3 @@ const useDeleteRecruiter = () => {
 };
 
 export default useDeleteRecruiter;
-function notifyError(arg0: string) {
-  throw new Error("Function not implemented.");
-}
