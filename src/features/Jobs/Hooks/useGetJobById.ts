@@ -2,13 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../Store/store";
 import { useEffect } from "react";
 import { fetchGetJobByID } from "../Actions/GetJobById";
-
-const useGetJobById = (id: number) => {
+import { useParams } from "react-router";
+const useGetJobById = () => {
+  const { jobId } = useParams();
   const jobByID: any = useSelector((state: RootState) => state.jobByid);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchGetJobByID(id));
+    dispatch(fetchGetJobByID(Number(jobId)));
   }, [dispatch]);
 
   return { jobByID };
