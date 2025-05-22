@@ -7,9 +7,9 @@ const useGetIsRegister = () => {
 
   useEffect(() => {
     if (!Token) {
-      setIsRegister(false);
-    } else {
       setIsRegister(true);
+    } else {
+      setIsRegister(false);
     }
   }, []);
 
