@@ -5,7 +5,7 @@ import useFormData from "../Hooks/useFormData";
 
 const FormSignUp = () => {
   const { toggleHasAccount } = useHasAccountContext();
-  const { handleSubmit, onSubmit } = useFormData();
+  const { handleSubmit, onSubmit, errors, register } = useFormData();
   return (
     <>
       <Model Header="SignUp">
@@ -24,8 +24,12 @@ const FormSignUp = () => {
               type="text"
               id="FirstName"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("FirstName", { required: "FirstName is required" })}
             />
           </p>
+          {errors.FirstName && (
+            <p className="text-red-500">{errors.FirstName.message as string}</p>
+          )}
           <p className="text-lg flex flex-col col-span-1 gap-1">
             <label
               htmlFor="LastName"
@@ -37,8 +41,12 @@ const FormSignUp = () => {
               type="text"
               id="LastName"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("LastName", { required: "LastName is required" })}
             />
           </p>
+          {errors.LastName && (
+            <p className="text-red-500">{errors.LastName.message as string}</p>
+          )}
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
               htmlFor="email"
@@ -50,8 +58,12 @@ const FormSignUp = () => {
               type="email"
               id="Email"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Email", { required: "Email is required" })}
             />
           </p>
+          {errors.Email && (
+            <p className="text-red-500">{errors.Email.message as string}</p>
+          )}
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
               htmlFor="Password"
@@ -63,8 +75,12 @@ const FormSignUp = () => {
               type="password"
               id="Password"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Password", { required: "Password is required" })}
             />
           </p>
+          {errors.Password && (
+            <p className="text-red-500">{errors.Password.message as string}</p>
+          )}
           <p className="col-span-2 mt-4 flex justify-end items-center gap-3">
             <button
               className="border-purple-200 cursor-pointer text-purple-200 px-3 rounded-xl py-1 border-1 "
