@@ -1,12 +1,19 @@
+import { p } from "motion/react-client";
 import Model from "../../../Components/Model";
 import { useHasAccountContext } from "../../../Context/useHasAccountContext";
+import { useFormData } from "../Hooks/useFormData";
 
 export const FormLogin = () => {
   const { toggleHasAccount } = useHasAccountContext();
+  const { OnSubmit, errors, handleSubmit, register } = useFormData();
   return (
     <>
       <Model Header="Login">
-        <form action="" className="grid grid-cols-2 mt-3">
+        <form
+          action=""
+          className="grid grid-cols-2 mt-3"
+          onSubmit={handleSubmit(OnSubmit)}
+        >
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
               htmlFor="email"
@@ -18,8 +25,12 @@ export const FormLogin = () => {
               type="email"
               id="Email"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Email", { required: "Email is required" })}
             />
           </p>
+          {errors.Email && (
+            <p className="text-red-500">{errors.Email.message as string}</p>
+          )}
           <p className="text-lg flex flex-col col-span-2 gap-1">
             <label
               htmlFor="Password"
@@ -31,8 +42,12 @@ export const FormLogin = () => {
               type="password"
               id="Password"
               className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+              {...register("Password", { required: "Password is required" })}
             />
           </p>
+          {errors.Password && (
+            <p className="text-red-500">{errors.Password.message as string}</p>
+          )}
           <p className="flex flex-col items-center justify-center col-span-2 mt-4">
             <button
               type="submit"
