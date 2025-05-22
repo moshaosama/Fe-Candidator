@@ -1,7 +1,7 @@
 import Dashboard from "../../Components/Dashboard";
 import Sidebar from "../../Components/Sidebar";
-import { FormLogin } from "../../features/Login/Component/FormLogin";
 import useGetPathName from "../../Hooks/useGetIsRegister";
+import HasAccountFactory from "../../Utils/HasAccountFactory";
 import SplitLayout from "../SplitLayout";
 
 const MainLayout = () => {
@@ -9,7 +9,7 @@ const MainLayout = () => {
   return (
     <>
       {isRegister ? (
-        <FormLogin />
+        <HasAccountFactory />
       ) : (
         <SplitLayout>
           <Dashboard />
