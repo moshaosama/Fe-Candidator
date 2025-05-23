@@ -18,7 +18,7 @@
 ## 🛠 Tech Stack
 
 **Frontend**  
-- Angular  
+- React  
 - Tailwind CSS / Bootstrap  
 
 **Backend**  
