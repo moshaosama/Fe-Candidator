@@ -1,14 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { candidateService } from "../../../APi/Candidate/CandidateService";
 
 export const fetchGetCandidator = createAsyncThunk(
   "Candidator/fetchGetCandidator",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:8000/get-candidates");
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error);
+      return candidateService.getAllData();
+    } catch (error: any) {
+      return rejectWithValue(
+        error.response?.data || error.message || "Unknown error"
+      );
     }
   }
 );
