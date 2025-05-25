@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { candidateService } from "../../../APi/Candidate/CandidateService";
 
 interface GetCandidateByStage {
   jobId: string;
@@ -8,14 +8,7 @@ interface GetCandidateByStage {
 
 export const fetchGetCandidateByStage = createAsyncThunk(
   "Candidator/fetchGetCandidateByStage",
-  async (data: GetCandidateByStage, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8000/get-candidate-by-stage/${data.jobId}/${data.stageTitle}`
-      );
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error as string);
-    }
+  async (data: GetCandidateByStage, ThunkAPi) => {
+    return candidateService.getCandidateByStage(data, ThunkAPi);
   }
 );
