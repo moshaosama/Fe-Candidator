@@ -12,11 +12,7 @@ interface CreateCandidatorData {
 
 export const fetchCreateCandidator = createAsyncThunk(
   "Candidator/fetchCreateCandidator",
-  async (data: CreateCandidatorData, { rejectWithValue }) => {
-    try {
-      return candidateService.createNewData(data);
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+  async (data: CreateCandidatorData, ThunkAPi) => {
+    return candidateService.createNewData(data, ThunkAPi);
   }
 );
