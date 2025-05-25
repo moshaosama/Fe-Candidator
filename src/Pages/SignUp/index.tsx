@@ -1,5 +1,5 @@
-import FormSignUp from "../../features/SignUp/Component/FormSignUp"
+import FormSignUp from "../../features/SignUp/Component/FormSignUp";
 
 export const SignUp = () => {
-  return <FormSignUp/>;
+  return <FormSignUp />;
 };
