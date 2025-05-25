@@ -1,17 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { companyService } from "../../../APi/Company/CompanyService";
 
 export const fetchGetCompanies = createAsyncThunk(
   "Company/fetchGetCompanies",
   async () => {
-    try {
-      const response = await axios.get(
-        // "https://be-candidator-production.up.railway.app/get-companies"
-        "http://localhost:8000/get-companies"
-      );
-      return response.data;
-    } catch (error) {
-      throw new Error(error as string);
-    }
+    return companyService.getAllData();
   }
 );
