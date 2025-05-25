@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { candidateService } from "../../../APi/Candidate/CandidateService";
 
 interface CreateCandidatorData {
   FirstName: string;
@@ -14,11 +14,7 @@ export const fetchCreateCandidator = createAsyncThunk(
   "Candidator/fetchCreateCandidator",
   async (data: CreateCandidatorData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(
-        "http://localhost:8000/create-candidate",
-        data
-      );
-      return response.data;
+      return candidateService.createNewData(data);
     } catch (error) {
       return rejectWithValue(error);
     }
