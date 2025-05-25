@@ -5,6 +5,7 @@ import DashboardProvider from "./Components/Dashboard/Context/DashboardContext.t
 import { store } from "./Store/store.ts";
 import { Provider } from "react-redux";
 import { HasAccountProvider } from "./Context/useHasAccountContext.tsx";
+
 createRoot(document.getElementById("root")!).render(
   <DashboardProvider>
     <Provider store={store}>
