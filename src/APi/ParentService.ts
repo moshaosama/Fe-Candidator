@@ -1,11 +1,11 @@
 abstract class ParentService {
-  url;
-  constructor(url: string) {
-    this.url = url;
+  protected url;
+  constructor() {
+    this.url = "http://localhost:8000";
   }
 
-  abstract getAllData(): void;
-  abstract createNewData(data: any): void;
+  abstract getAllData(_?: any, thunkAPI?: any): any;
+  abstract createNewData(data: any, thunkAPI: any): any;
 }
 
 export default ParentService;
