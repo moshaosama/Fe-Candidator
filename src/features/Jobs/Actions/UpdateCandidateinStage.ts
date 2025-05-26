@@ -1,22 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { candidateService } from "../../../APi/Candidate/CandidateService";
 
-interface UpdateCandidateinStageData {
+export interface UpdateCandidateinStageData {
   JobID: string;
   CandidateID: string;
 }
 
 export const fetchUpdateCandidateinStage = createAsyncThunk(
   "Jobs/fetchUpdateCandidateinStage",
-  async (Data: UpdateCandidateinStageData, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/create-candidate-in-stage",
-        Data
-      );
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+  async (Data: UpdateCandidateinStageData, thunkAPI) => {
+    return candidateService.UpdateCandidateinStage(Data, thunkAPI);
   }
 );
