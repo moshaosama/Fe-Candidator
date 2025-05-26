@@ -15,7 +15,7 @@ export const LayoutByRoleFactory = () => {
 
   if (User?.result?.Role === "Candidate") {
     useEffect(() => {
-      Navigate("/candidates");
+      Navigate("/careerhub/overview");
     }, []);
     return <ViewCandidatorPage />;
   } else {
