@@ -21,6 +21,8 @@ import AddCandidateModelProvider from "../features/Stages/Context/useAddCandidat
 import AddStageModelProvider from "../features/Stages/Context/useAddStageContext";
 import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
+import OverView from "../Pages/Candidates/CandidatorPage/OverView";
+import { JobsAvaliable } from "../Pages/Candidates/CandidatorPage/JobsAvaliable";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -116,6 +118,22 @@ const RouterPages = () => {
         {
           path: "roles",
           element: <Roles />,
+        },
+        {
+          path: "careerhub",
+          children: [
+            {
+              index: true,
+            },
+            {
+              path: "overview",
+              element: <OverView />,
+            },
+            {
+              path: "jobs",
+              element: <JobsAvaliable />,
+            },
+          ],
         },
       ],
     },
