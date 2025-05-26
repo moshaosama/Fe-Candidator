@@ -1,3 +1,9 @@
+import { HeaderJobCandidator } from "../../../../features/JobsCandidatePage/HeaderJobCandidator";
+
 export const JobsAvaliable = () => {
-  return <div>Jobs</div>;
+  return (
+    <>
+      <HeaderJobCandidator />
+    </>
+  );
 };
