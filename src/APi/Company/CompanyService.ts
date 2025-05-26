@@ -32,6 +32,25 @@ class CompanyService extends ParentService {
       throw new Error(error as string);
     }
   }
+
+  async getCompanyById(companyId: number, thunkAPI: any) {
+    try {
+      const response = await fetch(
+        `${this.url}/get-company-by-id/${companyId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const result = await response.json();
+
+      return result;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error as string);
+    }
+  }
 }
 
 export const companyService = new CompanyService();
