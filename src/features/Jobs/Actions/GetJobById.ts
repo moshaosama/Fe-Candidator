@@ -1,16 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { jobService } from "../../../APi/Jobs/JobService";
 
 export const fetchGetJobByID = createAsyncThunk(
   "Jobs/fetchGetJobByID",
-  async (jobId: number, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8000/get-job-by-id/${jobId}`
-      );
-      return response.data;
-    } catch (err) {
-      return rejectWithValue(err as string);
-    }
+  async (jobId: number, thunkAPI) => {
+    return jobService.getJobById(jobId, thunkAPI);
   }
 );
