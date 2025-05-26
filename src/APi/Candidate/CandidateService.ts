@@ -1,5 +1,6 @@
 import axios from "axios";
 import ParentService from "../ParentService";
+import { UpdateCandidateinStageData } from "../../features/Jobs/Actions/UpdateCandidateinStage";
 
 class CandidateService extends ParentService {
   async getAllData(ThunApi: any) {
@@ -28,6 +29,21 @@ class CandidateService extends ParentService {
       return response.data;
     } catch (error) {
       return ThunkApi.rejectWithValue(error as string);
+    }
+  }
+
+  async UpdateCandidateinStage(
+    Data: UpdateCandidateinStageData,
+    thunkAPI: any
+  ) {
+    try {
+      const response = await axios.post(
+        `${this.url}/create-candidate-in-stage`,
+        Data
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
   }
 }
