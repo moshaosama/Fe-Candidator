@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "../Layout/MainLayout";
 import Tasks from "../Pages/Tasks";
 import Accounts from "../Pages/Account";
-import Candidates from "../Pages/Candidates";
 import Companies from "../Pages/Companies";
 import Contacts from "../Pages/Contacts";
 import Roles from "../Pages/Roles";
@@ -21,6 +20,7 @@ import Stages from "../Pages/Stages";
 import AddCandidateModelProvider from "../features/Stages/Context/useAddCandidateModelContext";
 import AddStageModelProvider from "../features/Stages/Context/useAddStageContext";
 import Users from "../Pages/Users";
+import Candidates from "../Pages/Candidates";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
