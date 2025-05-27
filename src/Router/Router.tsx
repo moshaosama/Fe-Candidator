@@ -21,9 +21,12 @@ import AddCandidateModelProvider from "../features/Stages/Context/useAddCandidat
 import AddStageModelProvider from "../features/Stages/Context/useAddStageContext";
 import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
-import OverView from "../Pages/Candidates/CandidatorPage/OverView";
-import { JobsAvaliable } from "../Pages/Candidates/CandidatorPage/JobsAvaliable";
+import { JobsAvaliable } from "../Pages/CareerHub/JobsAvaliable";
 import { ApplyJob } from "../features/JobsCandidatePage/Components/ApplyJob";
+import OverView from "../Pages/CareerHub/OverView";
+import { Split_My_Applications } from "../Pages/CareerHub/SplitmyApplication";
+import My_Application from "../Pages/CareerHub/myApplication";
+import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -120,11 +123,26 @@ const RouterPages = () => {
           path: "roles",
           element: <Roles />,
         },
+
         {
           path: "careerhub",
           children: [
             {
               index: true,
+            },
+            {
+              path: "",
+              element: <Split_My_Applications />,
+              children: [
+                {
+                  path: "applications",
+                  element: <My_Application />,
+                },
+                {
+                  path: "saved_jobs",
+                  element: <Saved_Jobs />,
+                },
+              ],
             },
             {
               path: "overview",

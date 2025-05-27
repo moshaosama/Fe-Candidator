@@ -6,7 +6,7 @@ import useGetPathName from "../Hooks/useGetIsRegister";
 import { useGetToken } from "../Hooks/useGetToken";
 import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
-import ViewCandidatorPage from "../Pages/Candidates/CandidatorPage";
+import ViewCandidatorPage from "../Pages/CareerHub/CandidatorPage";
 
 export const LayoutByRoleFactory = () => {
   const { User } = useGetToken();
@@ -16,7 +16,11 @@ export const LayoutByRoleFactory = () => {
 
   if (User?.result?.Role === "Candidate") {
     useEffect(() => {
-      if (User?.result?.Role === "Candidate" && pathname === "/") {
+      if (
+        (User?.result?.Role === "Candidate" && pathname === "/") ||
+        pathname === "/careerhub/" ||
+        pathname === "/careerhub"
+      ) {
         navigate("/careerhub/overview");
       }
     }, [User, pathname, navigate]);
