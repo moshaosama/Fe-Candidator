@@ -23,7 +23,7 @@ import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
 import OverView from "../Pages/Candidates/CandidatorPage/OverView";
 import { JobsAvaliable } from "../Pages/Candidates/CandidatorPage/JobsAvaliable";
-import { ApplyJob } from "../features/JobsCandidatePage/ApplyJob";
+import { ApplyJob } from "../features/JobsCandidatePage/Components/ApplyJob";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
