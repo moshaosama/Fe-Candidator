@@ -14,7 +14,7 @@ export const ApplyJob = () => {
     const isLoadingFun = async () => {
       setIsLoading(false);
 
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       setIsLoading(true);
     };
