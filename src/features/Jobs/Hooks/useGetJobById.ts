@@ -10,9 +10,9 @@ const useGetJobById = () => {
 
   useEffect(() => {
     dispatch(fetchGetJobByID(Number(jobId)));
-  }, [dispatch]);
+  }, [dispatch, jobId]);
 
-  return { jobByID };
+  return { jobByID, jobId };
 };
 
 export default useGetJobById;
