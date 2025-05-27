@@ -8,7 +8,7 @@ export const DisplayJobData = () => {
 
   return (
     <div className="ml-44 mt-20 flex gap-10">
-      <div className="sticky top-0 h-screen overflow-y-auto">
+      <div className="sticky top-0 h-[33pc] overflow-y-scroll">
         {Jobs.jobs.result?.map((jobs: any, index: number) => (
           <Link to={`${jobs.id}`}>
             <div
