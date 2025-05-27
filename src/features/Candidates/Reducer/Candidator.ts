@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchCreateCandidator } from "../Action/CreateCandidator";
 import fetchGetCandidator from "../Action/getCandidator";
 import { fetchGetCandidateByStage } from "../Action/GetCandidateByStage";
+import { fetchGetCandidateByID } from "../Action/getCandidateById";
 
 const initialState = {
   candidator: {},
@@ -58,9 +59,29 @@ const CandidateByStageSlice = createSlice({
   },
 });
 
+const CandidateByIdSlice = createSlice({
+  name: "CandidateByID",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchGetCandidateByID.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchGetCandidateByID.fulfilled, (state, action) => {
+      state.loading = false;
+      state.candidator = action.payload;
+    });
+    builder.addCase(fetchGetCandidateByID.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+  },
+});
+
 const CandidatorReducer = {
   Candidator: CandidatorSlice.reducer,
   CandidateByStage: CandidateByStageSlice.reducer,
+  CandidateById: CandidateByIdSlice.reducer,
 };
 
 export default CandidatorReducer;
