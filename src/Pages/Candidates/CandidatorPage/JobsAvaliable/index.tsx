@@ -1,6 +1,6 @@
-import { DisplayJobData } from "../../../../features/JobsCandidatePage/DisplayJobData";
-import { Filteration } from "../../../../features/JobsCandidatePage/Filteration";
-import { HeaderJobCandidator } from "../../../../features/JobsCandidatePage/HeaderJobCandidator";
+import { DisplayJobData } from "../../../../features/JobsCandidatePage/Components/DisplayJobData";
+import { Filteration } from "../../../../features/JobsCandidatePage/Components/Filteration";
+import { HeaderJobCandidator } from "../../../../features/JobsCandidatePage/Components/HeaderJobCandidator";
 
 export const JobsAvaliable = () => {
   return (
