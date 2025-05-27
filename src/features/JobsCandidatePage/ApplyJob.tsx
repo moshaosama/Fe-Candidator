@@ -5,6 +5,8 @@ import { DetailsJob } from "./DetailsJob";
 import JobInsights from "./JobInsights";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
+import useAddCandidate from "../Stages/Hooks/useAddCandidate";
+import { useGetToken } from "../../Hooks/useGetToken";
 
 export const ApplyJob = () => {
   const { jobByID, jobId } = useGetJobById();
@@ -21,6 +23,11 @@ export const ApplyJob = () => {
 
     isLoadingFun();
   }, [jobId]);
+
+  const { onSubmit } = useAddCandidate();
+  const { User } = useGetToken();
+
+  console.log(User?.result?.id);
 
   return (
     <>
@@ -40,7 +47,14 @@ export const ApplyJob = () => {
                 {jobByID?.jobs?.result?.[0]?.JobTitle}
               </h1>
               <p>{jobByID?.jobs?.result?.[0]?.Location}</p>
-              <button className="mt-7 border-white w-40 py-4 rounded-full cursor-pointer hover:bg-white transition-all duration-500  hover:text-black text-lg font-bold border-2">
+              <button
+                onClick={() =>
+                  onSubmit({
+                    CandidateID: String(User?.result?.id),
+                  })
+                }
+                className="mt-7 border-white w-40 py-4 rounded-full cursor-pointer hover:bg-white transition-all duration-500  hover:text-black text-lg font-bold border-2"
+              >
                 Apply Now
               </button>
             </div>
