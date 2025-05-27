@@ -18,6 +18,7 @@ export const store = configureStore({
     jobByid: jobByIDReducer,
     candidator: CandidatorReducer.Candidator,
     candidatorByStage: CandidatorReducer.CandidateByStage,
+    candidatorById: CandidatorReducer.CandidateById,
     stages: StagesReducer,
     User: UserReducer,
   },
