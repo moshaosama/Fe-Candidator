@@ -8,6 +8,7 @@ export const JobsAvaliable = () => {
       <HeaderJobCandidator />
       <Filteration />
       <DisplayJobData />
+      {/* <ApplyModel /> */}
     </>
   );
 };
