@@ -2,7 +2,6 @@ import { useGetToken } from "../../Hooks/useGetToken";
 
 const HeaderOverView = () => {
   const { User } = useGetToken();
-  console.log(User?.result?.FirstName);
 
   return (
     <>
