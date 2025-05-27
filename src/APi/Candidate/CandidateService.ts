@@ -46,6 +46,17 @@ class CandidateService extends ParentService {
       return thunkAPI.rejectWithValue(error);
     }
   }
+
+  async getCandidateByID(candidateId: string, thunkAPI: any) {
+    try {
+      const response = await axios.get(
+        `${this.url}/get-candidate-by-id/${candidateId}`
+      );
+      return response.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err as string);
+    }
+  }
 }
 
 export default CandidateService;
