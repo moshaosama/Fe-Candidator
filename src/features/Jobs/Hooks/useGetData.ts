@@ -16,6 +16,7 @@ interface JobsData {
         LinkedInProfile: string;
         Stages: string;
       }[];
+      id: number;
       Commitment: string;
       Contact: string;
       Department: string;
