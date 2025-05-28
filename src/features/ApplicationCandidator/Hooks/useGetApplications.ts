@@ -7,8 +7,9 @@ const useGetApplications = () => {
 
   const jobIds = CandidateById?.candidator?.result?.[0]?.jobId;
   const parsedJobIds = jobIds ? JSON.parse(jobIds) : [];
+
   let result = parsedJobIds?.map((e: any) => {
-    return Jobs.jobs.result.find((el) => String(el.id) === String(e.jobId));
+    return Jobs?.jobs?.result?.find((el) => String(el.id) === String(e.jobId));
   });
 
   return { result };
