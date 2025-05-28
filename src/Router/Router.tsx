@@ -27,6 +27,7 @@ import OverView from "../Pages/CareerHub/OverView";
 import { Split_My_Applications } from "../Pages/CareerHub/SplitmyApplication";
 import My_Application from "../Pages/CareerHub/myApplication";
 import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
+import { CreateJobFavProvider } from "../features/JobsCandidatePage/Context/CreatejobFavContext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -150,11 +151,19 @@ const RouterPages = () => {
             },
             {
               path: "jobs",
-              element: <JobsAvaliable />,
+              element: (
+                <CreateJobFavProvider>
+                  <JobsAvaliable />
+                </CreateJobFavProvider>
+              ),
               children: [
                 {
                   path: ":jobId",
-                  element: <ApplyJob />,
+                  element: (
+                    <CreateJobFavProvider>
+                      <ApplyJob />
+                    </CreateJobFavProvider>
+                  ),
                 },
               ],
             },
