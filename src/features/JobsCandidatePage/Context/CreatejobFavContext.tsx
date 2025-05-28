@@ -9,7 +9,6 @@ import { useGetSavedJobs } from "../../ApplicationCandidator/Hooks/useGetSavedJo
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/store";
-import { useParams } from "react-router";
 import { fetchCreateSavedJob } from "../../ApplicationCandidator/Action/CreateSavedJobs";
 
 interface CreateJobFavContextType {
