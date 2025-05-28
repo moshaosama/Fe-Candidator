@@ -28,6 +28,7 @@ import { Split_My_Applications } from "../Pages/CareerHub/SplitmyApplication";
 import My_Application from "../Pages/CareerHub/myApplication";
 import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
 import { CreateJobFavProvider } from "../features/JobsCandidatePage/Context/CreatejobFavContext";
+import MyProfile from "../Pages/CareerHub/MyProfile";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -144,6 +145,10 @@ const RouterPages = () => {
                   element: <Saved_Jobs />,
                 },
               ],
+            },
+            {
+              path: "me/edit",
+              element: <MyProfile />,
             },
             {
               path: "overview",
