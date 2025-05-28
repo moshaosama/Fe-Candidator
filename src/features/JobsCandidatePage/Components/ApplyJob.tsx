@@ -6,10 +6,12 @@ import { ClipLoader } from "react-spinners";
 import JobInsights from "./JobInsights";
 import clsx from "clsx";
 import { useApplyJob } from "../Hooks/useApplyJob";
+import { useCreateJobFav } from "../Context/CreatejobFavContext";
 
 export const ApplyJob = () => {
   const { jobByID } = useGetJobById();
   const { isLoading, isApply, handleApplyJob } = useApplyJob();
+  const { isFav, handleTriggerIsLove } = useCreateJobFav();
 
   return (
     <>
@@ -17,8 +19,12 @@ export const ApplyJob = () => {
         <>
           <div className="text-white mt-3 border-2 border-[#432f52] w-[75pc] py-8 rounded-xl">
             <div className="flex justify-end mr-10 gap-10">
-              <i>
-                <MdFavoriteBorder size={20} cursor={"pointer"} />
+              <i onClick={handleTriggerIsLove}>
+                <MdFavoriteBorder
+                  size={20}
+                  cursor={"pointer"}
+                  className={clsx(isFav && "text-red-600")}
+                />
               </i>
               <i>
                 <RiShareForwardLine size={20} cursor={"pointer"} />

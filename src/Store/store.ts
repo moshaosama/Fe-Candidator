@@ -9,6 +9,7 @@ import {
 import StagesReducer from "../features/Stages/Reducer/StageSlice";
 import CandidatorReducer from "../features/Candidates/Reducer/Candidator";
 import UserReducer from "../features/Login/Reducer/LoginSlice";
+import SavedJobsReducer from "../features/ApplicationCandidator/Reducer/SavedJobSlice";
 export const store = configureStore({
   reducer: {
     recruiter: RecruiterReducer,
@@ -21,6 +22,7 @@ export const store = configureStore({
     candidatorById: CandidatorReducer.CandidateById,
     stages: StagesReducer,
     User: UserReducer,
+    savedJobs: SavedJobsReducer,
   },
 });
 

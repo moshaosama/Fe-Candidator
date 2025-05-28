@@ -1,5 +1,11 @@
+import DisplaySavedJobsData from "../../../features/ApplicationCandidator/Components/DisplaySavedJobsData";
+
 const Saved_Jobs = () => {
-  return <div>Saved_Jobs</div>;
+  return (
+    <>
+      <DisplaySavedJobsData />
+    </>
+  );
 };
 
 export default Saved_Jobs;

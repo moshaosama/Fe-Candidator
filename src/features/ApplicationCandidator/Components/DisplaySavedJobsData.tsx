@@ -1,14 +1,12 @@
 import { AiOutlineMore } from "react-icons/ai";
-import useGetApplications from "../Hooks/useGetApplications";
-import { useGetCandidateById } from "../../OverView/Hooks/useGetCandidateById";
+import { useGetSavedJobs } from "../Hooks/useGetSavedJobs";
 
-export const DisplayApplications = () => {
-  const { result } = useGetApplications();
-  const { CandidateById } = useGetCandidateById();
+const DisplaySavedJobsData = () => {
+  const { savedJobs } = useGetSavedJobs();
 
   return (
     <>
-      {result?.length > 0 ? (
+      {savedJobs.savedJobs.result?.length > 0 ? (
         <>
           <div className="mt-10 rounded-xl">
             <table className="min-w-full bg-white rounded-xl border-none shadow-md overflow-hidden">
@@ -18,13 +16,13 @@ export const DisplayApplications = () => {
                   <th className="py-3 px-4">Req ID</th>
                   <th className="py-3 px-4">Department</th>
                   <th className="py-3 px-4">Location</th>
-                  <th className="py-3 px-4">Date Applied</th>
-                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4">Save Date</th>
+
                   <th className="py-3 px-4">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {result?.map((jobs: any, index: number) => (
+                {savedJobs.savedJobs.result?.map((jobs: any, index: number) => (
                   <tr
                     key={index}
                     className={`${
@@ -36,9 +34,6 @@ export const DisplayApplications = () => {
                     <td className="py-3 px-4">{jobs.Department}</td>
                     <td className="py-3 px-4">{jobs.Location}</td>
                     <td className="py-3 px-4">May 16, 2025</td>
-                    <td className="py-3 px-4">
-                      {CandidateById?.candidator?.result?.[0]?.Stages}
-                    </td>
                     <td className="py-3 px-4">
                       <AiOutlineMore />
                     </td>
@@ -60,3 +55,5 @@ export const DisplayApplications = () => {
     </>
   );
 };
+
+export default DisplaySavedJobsData;

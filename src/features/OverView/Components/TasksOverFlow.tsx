@@ -1,12 +1,11 @@
 import { FaArrowRight } from "react-icons/fa6";
 import { useGetToken } from "../../../Hooks/useGetToken";
 import { Link } from "react-router";
-import { useGetCandidateById } from "../Hooks/useGetCandidateById";
+import useGetApplications from "../../ApplicationCandidator/Hooks/useGetApplications";
 
 export const TasksOverFlow = () => {
   const { User } = useGetToken();
-  const { CandidateById } = useGetCandidateById();
-
+  const { result } = useGetApplications();
 
   return (
     <>
@@ -29,7 +28,7 @@ export const TasksOverFlow = () => {
             <h1 className="font-bold">My Activity</h1>
             <div className="flex justify-between items-center cursor-pointer hover:underline">
               <h1>Job Applications</h1>
-              <p>{CandidateById?.candidator?.result?.[0]?.job_application}</p>
+              <p>{result?.length}</p>
             </div>
           </div>
         </div>
