@@ -1,16 +1,11 @@
 import axios from "axios";
 
-interface EditProfileServiceData {
-  data: any;
-  candidateId: number;
-}
-
 class EditProfileService {
-  async EditProfile(data: EditProfileServiceData, thunkAPI: any) {
+  async EditProfile(candidateId: number, data: any, thunkAPI: any) {
     try {
       const response = await axios.put(
-        `http://localhost:8000/edit-candidate-profile/${data.candidateId}`,
-        data.data
+        `http://localhost:8000/edit-candidate-profile/${candidateId}`,
+        data
       );
 
       return response.data;
