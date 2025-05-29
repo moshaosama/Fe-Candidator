@@ -8,7 +8,7 @@ export const ResumesProfile = () => {
           <h1 className="text-2xl font-bold">Skills</h1>
         </div>
         <div>
-          <MdOutlineEdit size={28} />
+          <MdOutlineEdit size={28} cursor={"pointer"} />
         </div>
       </div>
     </>
