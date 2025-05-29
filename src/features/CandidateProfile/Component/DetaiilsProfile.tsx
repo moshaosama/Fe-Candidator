@@ -9,7 +9,7 @@ import { useDetailsProfileFun } from "../Hooks/useDetailsProfileFun";
 const DetaiilsProfile = () => {
   const { CandidateById } = useGetCandidateById();
   const {
-    isOpen,
+    isOpenDetailsProfile,
     handleTriggerOpen,
     register,
     errors,
@@ -20,21 +20,27 @@ const DetaiilsProfile = () => {
   return (
     <>
       <div className="flex justify-between border-2 px-10 py-5 mt-5 border-gray-500 rounded-xl">
-        <div className="text-white grid grid-cols-2 gap-x-56 gap-y-8">
+        <div className="text-white grid grid-cols-2 gap-x-40 gap-y-8">
           <CardDetails
             Header={CandidateById?.candidator?.result?.[0]?.Email}
             Icon={<MdOutlineEmail size={28} />}
             Text="Email"
           />
-          <CardDetails
-            Header={
-              CandidateById?.candidator?.result?.[0]?.LinkedInProfile
-                ? CandidateById?.candidator?.result?.[0]?.LinkedInProfile
-                : "no LinkedIn"
-            }
-            Icon={<CiLink size={28} />}
-            Text="Links"
-          />
+          <a
+            href={CandidateById?.candidator?.result?.[0]?.LinkedInProfile}
+            className="hover:underline"
+            target="_blank"
+          >
+            <CardDetails
+              Header={
+                CandidateById?.candidator?.result?.[0]?.LinkedInProfile
+                  ? CandidateById?.candidator?.result?.[0]?.LinkedInProfile
+                  : "no LinkedIn"
+              }
+              Icon={<CiLink size={28} />}
+              Text="Links"
+            />
+          </a>
           <CardDetails
             Header={
               CandidateById?.candidator?.result?.[0]?.Location
@@ -70,7 +76,7 @@ const DetaiilsProfile = () => {
       </div>
 
       {/* Form Edit */}
-      {isOpen && (
+      {isOpenDetailsProfile && (
         <div>
           <Model Header="Edit Fields">
             <form
