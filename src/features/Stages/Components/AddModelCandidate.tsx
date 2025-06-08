@@ -8,9 +8,9 @@ const AddModelCandidate = () => {
   const { handleClickAddModal } = useAddCandidateModelContext();
   const { register, handleSubmit, onSubmit } = useAddCandidate();
 
-  const FilterCandidate = Candidator?.candidator?.result?.filter(
-    (candidate) => candidate.jobId === null
-  );
+  // const FilterCandidate = Candidator?.candidator?.result?.filter(
+  //   (candidate) => candidate.jobId === null
+  // );
 
   return (
     <>
@@ -32,7 +32,7 @@ const AddModelCandidate = () => {
                 required: "Candidate is required",
               })}
             >
-              {FilterCandidate?.map((candidate: any) => (
+              {Candidator?.candidator?.result?.map((candidate: any) => (
                 <option value={candidate.id} key={candidate.id}>
                   {candidate.FirstName} {candidate.LastName}
                 </option>
