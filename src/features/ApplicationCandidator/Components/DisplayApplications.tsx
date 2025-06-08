@@ -3,12 +3,14 @@ import useGetApplications from "../Hooks/useGetApplications";
 import { useGetCandidateById } from "../../OverView/Hooks/useGetCandidateById";
 
 export const DisplayApplications = () => {
-  const { result } = useGetApplications();
+  const { jobApplication } = useGetApplications();
   const { CandidateById } = useGetCandidateById();
+
+  console.log(jobApplication?.ApplyJob?.result);
 
   return (
     <>
-      {result?.length > 0 ? (
+      {jobApplication?.ApplyJob?.result?.length > 0 ? (
         <>
           <div className="mt-10 rounded-xl">
             <table className="min-w-full bg-white rounded-xl border-none shadow-md overflow-hidden">
@@ -24,26 +26,28 @@ export const DisplayApplications = () => {
                 </tr>
               </thead>
               <tbody>
-                {result?.map((jobs: any, index: number) => (
-                  <tr
-                    key={index}
-                    className={`${
-                      index % 2 === 0 ? "bg-white" : "bg-gray-300"
-                    } border-b hover:bg-gray-200 transition`}
-                  >
-                    <td className="py-3 px-4">{jobs.JobTitle}</td>
-                    <td className="py-3 px-4">{jobs.id}</td>
-                    <td className="py-3 px-4">{jobs.Department}</td>
-                    <td className="py-3 px-4">{jobs.Location}</td>
-                    <td className="py-3 px-4">May 16, 2025</td>
-                    <td className="py-3 px-4">
-                      {CandidateById?.candidator?.result?.[0]?.Stages}
-                    </td>
-                    <td className="py-3 px-4">
-                      <AiOutlineMore />
-                    </td>
-                  </tr>
-                ))}
+                {jobApplication?.ApplyJob?.result?.map(
+                  (jobs: any, index: number) => (
+                    <tr
+                      key={index}
+                      className={`${
+                        index % 2 === 0 ? "bg-white" : "bg-gray-300"
+                      } border-b hover:bg-gray-200 transition`}
+                    >
+                      <td className="py-3 px-4">{jobs.JobTitle}</td>
+                      <td className="py-3 px-4">{jobs.id}</td>
+                      <td className="py-3 px-4">{jobs.Department}</td>
+                      <td className="py-3 px-4">{jobs.Location}</td>
+                      <td className="py-3 px-4">May 16, 2025</td>
+                      <td className="py-3 px-4">
+                        {CandidateById?.candidator?.result?.[0]?.Stages}
+                      </td>
+                      <td className="py-3 px-4">
+                        <AiOutlineMore />
+                      </td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
