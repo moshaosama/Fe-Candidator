@@ -3,12 +3,20 @@ import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import { useGetToken } from "../../../Hooks/useGetToken";
 import useAddCandidate from "../../Stages/Hooks/useAddCandidate";
 import { useForm } from "react-hook-form";
+import useGetData from "../../Jobs/Hooks/useGetData";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../Store/store";
+import { fetchApplyJob, fetchGetApplyJobs } from "../Actions/ApplyJob";
 
 export const useApplyJob = () => {
   const { jobByID, jobId } = useGetJobById();
-  const [isApply, setIsApply] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const candidatesString = jobByID?.jobs?.result?.[0]?.Candidates;
+  const AppliedJob = useSelector((state: RootState) => state.ApplyJob) as any;
+  const [FilterationAppliedJob, setFilterationAppliedJob] = useState<[]>([]);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { Jobs } = useGetData();
   const { User } = useGetToken();
   const { onSubmit } = useAddCandidate();
   const {
@@ -16,24 +24,20 @@ export const useApplyJob = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  useEffect(() => {
-    let candidates = [];
-    try {
-      if (candidatesString) {
-        candidates = JSON.parse(candidatesString);
-      }
-    } catch (error) {
-      console.error("Failed to parse candidates JSON:", error);
-      candidates = [];
-    }
-    const result = candidates.filter((el: any) => el.id === User?.result?.id);
 
-    if (result.length > 0) {
-      setIsApply(true);
-    } else {
-      setIsApply(false);
-    }
-  }, [candidatesString, jobId]);
+  useEffect(() => {
+    dispatch(fetchGetApplyJobs(User?.result?.id));
+  }, [dispatch]);
+
+  useEffect(() => {
+    const filteredJobs = Jobs?.jobs?.result.filter((job) =>
+      AppliedJob?.ApplyJob?.result?.some(
+        (appliedJob: any) => appliedJob.jobId === job.id
+      )
+    ) as any;
+
+    setFilterationAppliedJob(filteredJobs);
+  }, [Jobs, AppliedJob]);
 
   useEffect(() => {
     const isLoadingFun = async () => {
@@ -48,16 +52,20 @@ export const useApplyJob = () => {
   }, [jobId]);
 
   const handleApplyJob = () => {
-    onSubmit({
-      CandidateID: String(User?.result?.id),
-    });
+    dispatch(
+      fetchApplyJob({
+        jobId: jobId,
+        candidateId: User?.result?.id,
+      })
+    );
   };
 
   return {
-    isApply,
     candidatesString,
     isLoading,
     handleApplyJob,
+    FilterationAppliedJob,
+    AppliedJob,
     register,
     errors,
     handleSubmit,
