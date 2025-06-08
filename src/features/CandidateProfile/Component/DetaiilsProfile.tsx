@@ -12,7 +12,6 @@ const DetaiilsProfile = () => {
     isOpenDetailsProfile,
     handleTriggerOpen,
     register,
-    errors,
     handleSubmit,
     onSubmit,
   } = useDetailsProfileFun();
@@ -94,15 +93,11 @@ const DetaiilsProfile = () => {
                   type="email"
                   id="Email"
                   className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+                  placeholder={CandidateById?.candidator?.result?.[0]?.Email}
                   {...register("Email", {
-                    required: "Email is required",
+                    value: CandidateById?.candidator?.result?.[0]?.Email,
                   })}
                 />
-                {errors.Email && (
-                  <p className="text-red-500">
-                    {errors.Email.message as string}
-                  </p>
-                )}
               </p>
               <p className="text-lg flex flex-col col-span-1 gap-1">
                 <label
@@ -115,15 +110,13 @@ const DetaiilsProfile = () => {
                   type="text"
                   id="FirstName"
                   className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+                  placeholder={
+                    CandidateById?.candidator?.result?.[0]?.FirstName
+                  }
                   {...register("FirstName", {
-                    required: "FirstName is required",
+                    value: CandidateById?.candidator?.result?.[0]?.FirstName,
                   })}
                 />
-                {errors.FirstName && (
-                  <p className="text-red-500">
-                    {errors.FirstName.message as string}
-                  </p>
-                )}
               </p>
               <p className="text-lg flex flex-col col-span-1 gap-1">
                 <label
@@ -136,15 +129,11 @@ const DetaiilsProfile = () => {
                   type="text"
                   id="LastName"
                   className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+                  placeholder={CandidateById?.candidator?.result?.[0]?.LastName}
                   {...register("LastName", {
-                    required: "LastName is required",
+                    value: CandidateById?.candidator?.result?.[0]?.LastName,
                   })}
                 />
-                {errors.LastName && (
-                  <p className="text-red-500">
-                    {errors.LastName.message as string}
-                  </p>
-                )}
               </p>
               <p className="text-lg flex flex-col col-span-2 gap-1">
                 <label
@@ -156,16 +145,14 @@ const DetaiilsProfile = () => {
                 <input
                   type="text"
                   id="phoneNumber"
+                  placeholder={
+                    CandidateById?.candidator?.result?.[0]?.phoneNumber
+                  }
                   className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
                   {...register("phoneNumber", {
-                    required: "phoneNumber is required",
+                    value: CandidateById?.candidator?.result?.[0]?.phoneNumber,
                   })}
                 />
-                {errors.phoneNumber && (
-                  <p className="text-red-500">
-                    {errors.phoneNumber.message as string}
-                  </p>
-                )}
               </p>
               <p className="text-lg flex flex-col col-span-2 gap-1">
                 <label
@@ -178,15 +165,11 @@ const DetaiilsProfile = () => {
                   type="text"
                   id="Location"
                   className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+                  placeholder={CandidateById?.candidator?.result?.[0]?.Location}
                   {...register("Location", {
-                    required: "Location is required",
+                    value: CandidateById?.candidator?.result?.[0]?.Location,
                   })}
                 />
-                {errors.Location && (
-                  <p className="text-red-500">
-                    {errors.Location.message as string}
-                  </p>
-                )}
               </p>
               <p className="text-lg flex flex-col col-span-2 gap-1">
                 <label
@@ -199,15 +182,14 @@ const DetaiilsProfile = () => {
                   type="text"
                   id="LinkedInProfile"
                   className="bg-zinc-800 p-1 rounded-lg border-1 border-gray-500 text-white"
+                  placeholder={
+                    CandidateById?.candidator?.result?.[0]?.LinkedInProfile
+                  }
                   {...register("LinkedInProfile", {
-                    required: "LinkedInProfile is required",
+                    value:
+                      CandidateById?.candidator?.result?.[0]?.LinkedInProfile,
                   })}
                 />
-                {errors.LinkedInProfile && (
-                  <p className="text-red-500">
-                    {errors.LinkedInProfile.message as string}
-                  </p>
-                )}
               </p>
               <p className="col-span-2 mt-4 flex justify-end items-center gap-3">
                 <button
