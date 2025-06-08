@@ -1,20 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../Store/store";
-import { fetchEditProfile } from "../Actions/EditProfile";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../Store/store";
 import { useGetToken } from "../../../Hooks/useGetToken";
+import { fetchGetSkill } from "../Actions/GetSkills";
+import { fetchCreateSkill } from "../Actions/CreateSkill";
+import { SkillData } from "../../../Types/CreateSkill";
 
 const useSkillsData = () => {
   const [isOpenSkillModel, setIsOpenSkillModel] = useState(true);
   const [isOpenInput, setIsOpenInput] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const Skills = useSelector((state: RootState) => state.Skill) as SkillData;
   const dispatch = useDispatch<AppDispatch>();
   const { User } = useGetToken();
+
+  useEffect(() => {
+    dispatch(fetchGetSkill(User?.result?.id));
+  }, []);
+
+  const { register, handleSubmit } = useForm();
 
   const handleTriggerOpen = () => {
     setIsOpenSkillModel(!isOpenSkillModel);
@@ -29,16 +33,15 @@ const useSkillsData = () => {
   };
 
   const OnSubmit = (data: any) => {
-    const payload = {
-      candidateId: User?.result?.id,
-      data: {
-        ...data,
-        Skills: JSON.stringify(data),
-      },
-    };
-
-    dispatch(fetchEditProfile(payload));
+    dispatch(
+      fetchCreateSkill({
+        Skill: data.Skill,
+        candidator_id: User?.result?.id,
+      })
+    );
+    dispatch(fetchGetSkill(User?.result?.id));
   };
+
   return {
     isOpenSkillModel,
     handleTriggerOpen,
@@ -48,7 +51,7 @@ const useSkillsData = () => {
     register,
     handleSubmit,
     OnSubmit,
-    errors,
+    Skills,
   };
 };
 
