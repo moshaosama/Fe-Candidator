@@ -6,7 +6,7 @@ import FavJobs from "./FavJobs";
 
 export const TasksOverFlow = () => {
   const { User } = useGetToken();
-  const { result } = useGetApplications();
+  const { jobApplication } = useGetApplications();
 
   return (
     <>
@@ -30,7 +30,7 @@ export const TasksOverFlow = () => {
               <h1 className="font-bold">My Activity</h1>
               <div className="flex justify-between items-center cursor-pointer hover:underline">
                 <h1>Job Applications</h1>
-                <p>{result?.length}</p>
+                <p>{jobApplication?.ApplyJob?.result?.length}</p>
               </div>
             </div>
           </div>
