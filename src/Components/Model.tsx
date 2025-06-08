@@ -28,7 +28,7 @@ const Model = ({ children, Header }: ModelProps) => {
         )}
         ref={Model}
       >
-        <div>
+        <div className="">
           <h1 className="text-md font-bold text-white">{Header}</h1>
           {React.Children.map(children, () => {
             if (React.isValidElement(children)) {
