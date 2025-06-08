@@ -11,6 +11,7 @@ import CandidatorReducer from "../features/Candidates/Reducer/Candidator";
 import UserReducer from "../features/Login/Reducer/LoginSlice";
 import SavedJobsReducer from "../features/ApplicationCandidator/Reducer/SavedJobSlice";
 import SkillReducer from "../features/CandidateProfile/Reducer/EditProfileSlice";
+import ApplyJobReducer from "../features/JobsCandidatePage/Reducers/ApplyJobReducer";
 export const store = configureStore({
   reducer: {
     recruiter: RecruiterReducer,
@@ -25,6 +26,7 @@ export const store = configureStore({
     User: UserReducer,
     savedJobs: SavedJobsReducer,
     Skill: SkillReducer,
+    ApplyJob: ApplyJobReducer,
   },
 });
 
