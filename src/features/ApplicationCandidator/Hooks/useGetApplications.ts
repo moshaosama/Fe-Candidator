@@ -1,18 +1,21 @@
-import useGetData from "../../Jobs/Hooks/useGetData";
-import { useGetCandidateById } from "../../OverView/Hooks/useGetCandidateById";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../Store/store";
+import { useEffect } from "react";
+import { fetchGetApplyJobs } from "../../JobsCandidatePage/Actions/ApplyJob";
+import { useGetToken } from "../../../Hooks/useGetToken";
 
 const useGetApplications = () => {
-  const { Jobs } = useGetData();
-  const { CandidateById } = useGetCandidateById();
+  const jobApplication = useSelector(
+    (state: RootState) => state.ApplyJob
+  ) as any;
+  const dispatch = useDispatch<AppDispatch>();
+  const { User } = useGetToken();
 
-  const jobIds = CandidateById?.candidator?.result?.[0]?.jobId;
-  const parsedJobIds = jobIds ? JSON.parse(jobIds) : [];
+  useEffect(() => {
+    dispatch(fetchGetApplyJobs(User?.result?.id));
+  }, [dispatch]);
 
-  let result = parsedJobIds?.map((e: any) => {
-    return Jobs?.jobs?.result?.find((el) => String(el.id) === String(e.jobId));
-  });
-
-  return { result };
+  return { jobApplication };
 };
 
 export default useGetApplications;
