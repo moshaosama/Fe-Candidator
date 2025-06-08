@@ -10,9 +10,8 @@ import { useCreateJobFav } from "../Context/CreatejobFavContext";
 
 export const ApplyJob = () => {
   const { jobByID } = useGetJobById();
-  const { isLoading, isApply, handleApplyJob } = useApplyJob();
+  const { isLoading, handleApplyJob, FilterationAppliedJob } = useApplyJob();
   const { isFav, handleTriggerIsLove } = useCreateJobFav();
-
   return (
     <>
       {isLoading ? (
@@ -36,14 +35,27 @@ export const ApplyJob = () => {
               </h1>
               <p>{jobByID?.jobs?.result?.[0]?.Location}</p>
               <button
-                disabled={isApply}
+                disabled={FilterationAppliedJob?.find(
+                  (applyjob: any) =>
+                    applyjob.id === jobByID?.jobs?.result?.[0]?.id
+                )}
                 onClick={handleApplyJob}
                 className={clsx(
                   "mt-7 border-white w-40 py-4 rounded-full cursor-pointer hover:bg-white transition-all duration-500  hover:text-black text-lg font-bold border-2",
-                  isApply ? "opacity-10" : "opacity-100"
+                  FilterationAppliedJob?.find(
+                    (applyjob: any) =>
+                      applyjob.id === jobByID?.jobs?.result?.[0]?.id
+                  )
+                    ? "opacity-10"
+                    : "opacity-100"
                 )}
               >
-                {isApply ? "Applied" : "Apply Now"}
+                {FilterationAppliedJob?.find(
+                  (applyjob: any) =>
+                    applyjob.id === jobByID?.jobs?.result?.[0]?.id
+                )
+                  ? "Applied"
+                  : "Apply Now"}
               </button>
             </div>
           </div>
