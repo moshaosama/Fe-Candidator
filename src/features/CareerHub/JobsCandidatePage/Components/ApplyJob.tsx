@@ -1,5 +1,4 @@
 import { MdFavoriteBorder } from "react-icons/md";
-import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import { RiShareForwardLine } from "react-icons/ri";
 import { DetailsJob } from "./DetailsJob";
 import { ClipLoader } from "react-spinners";
@@ -7,6 +6,7 @@ import JobInsights from "./JobInsights";
 import clsx from "clsx";
 import { useApplyJob } from "../Hooks/useApplyJob";
 import { useCreateJobFav } from "../Context/CreatejobFavContext";
+import useGetJobById from "../../../Jobs/Hooks/useGetJobById";
 
 export const ApplyJob = () => {
   const { jobByID } = useGetJobById();

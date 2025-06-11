@@ -1,5 +1,6 @@
-import Model from "../../../Components/Model";
-import useGetJobById from "../../Jobs/Hooks/useGetJobById";
+
+import Model from "../../../../Components/Model";
+import useGetJobById from "../../../Jobs/Hooks/useGetJobById";
 import { useApplyJob } from "../Hooks/useApplyJob";
 
 const ApplyModel = () => {

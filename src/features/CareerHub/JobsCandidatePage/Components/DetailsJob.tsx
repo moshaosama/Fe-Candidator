@@ -1,8 +1,8 @@
 import { CiFolderOn } from "react-icons/ci";
-import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import { BiBuilding } from "react-icons/bi";
-import { CardDetails } from "../../../Components/CardDetails";
 import { BsBing } from "react-icons/bs";
+import { CardDetails } from "../../../../Components/CardDetails";
+import useGetJobById from "../../../Jobs/Hooks/useGetJobById";
 
 export const DetailsJob = () => {
   const { jobByID } = useGetJobById();

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import useGetJobById from "../../Jobs/Hooks/useGetJobById";
-import { useGetToken } from "../../../Hooks/useGetToken";
-import useAddCandidate from "../../Stages/Hooks/useAddCandidate";
 import { useForm } from "react-hook-form";
-import useGetData from "../../Jobs/Hooks/useGetData";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../Store/store";
+
 import { fetchApplyJob, fetchGetApplyJobs } from "../Actions/ApplyJob";
+import { useGetToken } from "../../../../Hooks/useGetToken";
+import { RootState, AppDispatch } from "../../../../Store/store";
+import useGetData from "../../../Jobs/Hooks/useGetData";
+import useGetJobById from "../../../Jobs/Hooks/useGetJobById";
+import useAddCandidate from "../../../Stages/Hooks/useAddCandidate";
 
 export const useApplyJob = () => {
   const { jobByID, jobId } = useGetJobById();

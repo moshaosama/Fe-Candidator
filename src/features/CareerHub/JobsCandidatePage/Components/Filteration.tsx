@@ -1,4 +1,5 @@
-import useGetData from "../../Jobs/Hooks/useGetData";
+import useGetData from "../../../Jobs/Hooks/useGetData";
+
 
 export const Filteration = () => {
   const { Jobs } = useGetData();

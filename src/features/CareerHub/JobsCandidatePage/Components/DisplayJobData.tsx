@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import useGetData from "../../Jobs/Hooks/useGetData";
 import { Link, Outlet, useNavigate } from "react-router";
 import { useEffect } from "react";
+import useGetData from "../../../Jobs/Hooks/useGetData";
 
 export const DisplayJobData = () => {
   const { Jobs } = useGetData();

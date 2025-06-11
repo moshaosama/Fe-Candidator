@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { applyJobService } from "../../../APi/ApplyJob/applyJobService";
+import { applyJobService } from "../../../../APi/ApplyJob/applyJobService";
 
 export const fetchApplyJob = createAsyncThunk(
   "ApplyJob/fetchApplyJob",
