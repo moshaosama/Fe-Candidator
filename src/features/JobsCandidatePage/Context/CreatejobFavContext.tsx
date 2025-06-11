@@ -34,7 +34,9 @@ export const CreateJobFavProvider = ({
     e.preventDefault();
     e.stopPropagation();
     setIsFav((prev) => !prev);
-    dispatch(fetchCreateSavedJob(String(jobId!)));
+    if (!isFav) {
+      dispatch(fetchCreateSavedJob(String(jobId!)));
+    }
   };
 
   useEffect(() => {
