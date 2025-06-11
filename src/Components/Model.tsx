@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ModelProps } from "../Types/ModelType";
 import clsk from "clsx";
+import { VscChromeClose } from "react-icons/vsc";
 
-const Model = ({ children, Header }: ModelProps) => {
+const Model = ({ children, Header, isExit, onCLickExit }: ModelProps) => {
   const [Open, setOpen] = useState(false);
   const Model = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -29,7 +30,16 @@ const Model = ({ children, Header }: ModelProps) => {
         ref={Model}
       >
         <div className="">
-          <h1 className="text-md font-bold text-white">{Header}</h1>
+          <div className="flex justify-between">
+            <h1 className="text-md font-bold text-white">{Header}</h1>
+            {isExit && (
+              <VscChromeClose
+                size={25}
+                cursor={"pointer"}
+                onClick={onCLickExit}
+              />
+            )}
+          </div>
           {React.Children.map(children, () => {
             if (React.isValidElement(children)) {
               return React.cloneElement(children);
