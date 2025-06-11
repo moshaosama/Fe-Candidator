@@ -46,7 +46,7 @@ export const ApplyJob = () => {
                     (applyjob: any) =>
                       applyjob.id === jobByID?.jobs?.result?.[0]?.id
                   )
-                    ? "opacity-10"
+                    ? "opacity-10 cursor-not-allowed"
                     : "opacity-100"
                 )}
               >
