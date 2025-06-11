@@ -9,7 +9,11 @@ import { useGetSavedJobs } from "../../ApplicationCandidator/Hooks/useGetSavedJo
 import useGetJobById from "../../Jobs/Hooks/useGetJobById";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/store";
-import { fetchCreateSavedJob } from "../../ApplicationCandidator/Action/CreateSavedJobs";
+import {
+  fetchCreateSavedJob,
+  fetchDeleteSavedJob,
+} from "../../ApplicationCandidator/Action/CreateSavedJobs";
+import { fetchGetSavedJobs } from "../../ApplicationCandidator/Action/getSavedJobs";
 
 interface CreateJobFavContextType {
   isFav: boolean;
@@ -30,12 +34,15 @@ export const CreateJobFavProvider = ({
   const { jobByID, jobId } = useGetJobById();
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleTriggerIsLove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleTriggerIsLove = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setIsFav((prev) => !prev);
     if (!isFav) {
       dispatch(fetchCreateSavedJob(String(jobId!)));
+    } else {
+      dispatch(fetchDeleteSavedJob(Number(jobId!)));
+      await dispatch(fetchGetSavedJobs());
     }
   };
 
