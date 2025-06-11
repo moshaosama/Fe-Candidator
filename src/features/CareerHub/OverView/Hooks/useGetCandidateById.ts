@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../Store/store";
-import { fetchGetCandidateByID } from "../../Candidates/Action/getCandidateById";
-import { useGetToken } from "../../../Hooks/useGetToken";
+import { AppDispatch, RootState } from "../../../../Store/store";
+import { fetchGetCandidateByID } from "../../../Candidates/Action/getCandidateById";
+import { useGetToken } from "../../../../Hooks/useGetToken";
 
 export const useGetCandidateById = () => {
   const CandidateById: any = useSelector(

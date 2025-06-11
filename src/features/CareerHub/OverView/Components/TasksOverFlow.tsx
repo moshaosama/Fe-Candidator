@@ -1,5 +1,5 @@
 import { FaArrowRight } from "react-icons/fa6";
-import { useGetToken } from "../../../Hooks/useGetToken";
+import { useGetToken } from "../../../../Hooks/useGetToken";
 import { Link } from "react-router";
 import useGetApplications from "../../ApplicationCandidator/Hooks/useGetApplications";
 import FavJobs from "./FavJobs";
