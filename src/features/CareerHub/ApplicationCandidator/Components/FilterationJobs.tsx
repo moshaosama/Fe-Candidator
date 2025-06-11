@@ -1,7 +1,7 @@
 import useGetApplications from "../Hooks/useGetApplications";
 
 export const FilterationApplication = () => {
-  const { result } = useGetApplications();
+  const { jobApplication } = useGetApplications();
   return (
     <>
       <div className="flex justify-between items-center text-white">
@@ -11,7 +11,7 @@ export const FilterationApplication = () => {
           className="bg-gray-600 py-2 w-96 px-3 rounded-full"
         />
         <div>
-          <h1 className="font-bold">Showing {result?.length} Jobs</h1>
+          <h1 className="font-bold">Showing {jobApplication?.length} Jobs</h1>
         </div>
       </div>
     </>

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../Store/store";
+import { AppDispatch, RootState } from "../../../../Store/store";
 import { useEffect } from "react";
 import { fetchGetApplyJobs } from "../../JobsCandidatePage/Actions/ApplyJob";
-import { useGetToken } from "../../../Hooks/useGetToken";
+import { useGetToken } from "../../../../Hooks/useGetToken";
 
 const useGetApplications = () => {
   const jobApplication = useSelector(
