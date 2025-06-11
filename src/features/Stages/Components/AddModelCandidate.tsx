@@ -8,10 +8,6 @@ const AddModelCandidate = () => {
   const { handleClickAddModal } = useAddCandidateModelContext();
   const { register, handleSubmit, onSubmit } = useAddCandidate();
 
-  // const FilterCandidate = Candidator?.candidator?.result?.filter(
-  //   (candidate) => candidate.jobId === null
-  // );
-
   return (
     <>
       <Model Header="Add New Candidate">
