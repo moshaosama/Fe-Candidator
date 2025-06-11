@@ -29,6 +29,7 @@ import My_Application from "../Pages/CareerHub/myApplication";
 import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
 import { CreateJobFavProvider } from "../features/JobsCandidatePage/Context/CreatejobFavContext";
 import MyProfile from "../Pages/CareerHub/MyProfile";
+import ResumeProvider from "../features/CandidateProfile/Context/ResumeContext";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -148,7 +149,11 @@ const RouterPages = () => {
             },
             {
               path: "me/edit",
-              element: <MyProfile />,
+              element: (
+                <ResumeProvider>
+                  <MyProfile />
+                </ResumeProvider>
+              ),
             },
             {
               path: "overview",
