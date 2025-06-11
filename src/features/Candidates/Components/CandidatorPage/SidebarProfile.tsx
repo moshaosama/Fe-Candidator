@@ -9,9 +9,11 @@ export const SidebarProfile = () => {
             <h1>My profile</h1>
           </div>
         </Link>
-        <div className="hover:bg-gray-400 p-2 rounded-xl cursor-pointer">
-          <h1>Setting</h1>
-        </div>
+        <Link to={"careerhub/settings"}>
+          <div className="hover:bg-gray-400 p-2 rounded-xl cursor-pointer">
+            <h1>Setting</h1>
+          </div>
+        </Link>
         <div className="hover:bg-gray-400 p-2 rounded-xl cursor-pointer">
           <h1>Logout</h1>
         </div>
