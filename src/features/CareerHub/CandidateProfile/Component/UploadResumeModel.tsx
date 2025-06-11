@@ -1,4 +1,4 @@
-import Model from "../../../Components/Model";
+import Model from "../../../../Components/Model";
 import { useResumeContext } from "../Context/ResumeContext";
 
 const UploadResumeModel = () => {

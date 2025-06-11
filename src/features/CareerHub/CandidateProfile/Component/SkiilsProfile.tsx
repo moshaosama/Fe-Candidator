@@ -1,7 +1,8 @@
 import { MdOutlineEdit } from "react-icons/md";
 import useSkillsData from "../Hooks/useSkillsData";
-import Model from "../../../Components/Model";
+
 import { IoAddOutline } from "react-icons/io5";
+import Model from "../../../../Components/Model";
 
 const SkiilsProfile = () => {
   const {
@@ -20,7 +21,7 @@ const SkiilsProfile = () => {
       <div>
         <h1 className="text-2xl font-bold">Skills</h1>
         <div className="flex gap-5 mt-4">
-          {Skills?.result?.result?.map((skill, index) => (
+          {Skills?.result?.result?.map((skill: any, index: number) => (
             <div
               key={index}
               className="flex items-center gap-4 cursor-pointer hover:bg-black hover:text-white font-bold transition-all duration-500 rounded-xl"
@@ -46,7 +47,7 @@ const SkiilsProfile = () => {
               Edit, add or remove skills to your profile
             </p>
             <p className="mt-7  gap-5 grid grid-cols-7">
-              {Skills?.result?.result?.map((skill, index) => (
+              {Skills?.result?.result?.map((skill: any, index: number) => (
                 <div key={index} className="flex items-center gap-4 ">
                   <div className="border-2 border-gray-500 hover:bg-black  cursor-pointer transition-all duration-500  w-20 p-1 flex justify-center rounded-xl gap-2">
                     <h1>{skill.Skill}</h1>

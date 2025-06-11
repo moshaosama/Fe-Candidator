@@ -1,10 +1,10 @@
 import { MdOutlineEdit, MdOutlineEmail } from "react-icons/md";
-import { CardDetails } from "../../../Components/CardDetails";
 import { useGetCandidateById } from "../../OverView/Hooks/useGetCandidateById";
 import { CiLink, CiLocationOn, CiPhone } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
-import Model from "../../../Components/Model";
 import { useDetailsProfileFun } from "../Hooks/useDetailsProfileFun";
+import { CardDetails } from "../../../../Components/CardDetails";
+import Model from "../../../../Components/Model";
 
 const DetaiilsProfile = () => {
   const { CandidateById } = useGetCandidateById();

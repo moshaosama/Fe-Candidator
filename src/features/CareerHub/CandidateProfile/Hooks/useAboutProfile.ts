@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useGetToken } from "../../../Hooks/useGetToken";
+import { useGetToken } from "../../../../Hooks/useGetToken";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../Store/store";
+import { AppDispatch } from "../../../../Store/store";
 import { fetchEditProfile } from "../Actions/EditProfile";
-import { fetchGetCandidateByID } from "../../Candidates/Action/getCandidateById";
+import { fetchGetCandidateByID } from "../../../Candidates/Action/getCandidateById";
 import { useGetCandidateById } from "../../OverView/Hooks/useGetCandidateById";
 
 export const useAboutProfile = () => {

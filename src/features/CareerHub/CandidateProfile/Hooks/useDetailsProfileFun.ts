@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../Store/store";
+import { AppDispatch } from "../../../../Store/store";
 import { fetchEditProfile } from "../Actions/EditProfile";
-import { useGetToken } from "../../../Hooks/useGetToken";
-import { fetchGetCandidateByID } from "../../Candidates/Action/getCandidateById";
+import { useGetToken } from "../../../../Hooks/useGetToken";
+import { fetchGetCandidateByID } from "../../../Candidates/Action/getCandidateById";
 
 export const useDetailsProfileFun = () => {
   const [isOpenDetailsProfile, setIsOpenDetailsProfile] = useState(false);

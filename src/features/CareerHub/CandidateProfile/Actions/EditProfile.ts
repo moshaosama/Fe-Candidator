@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { editProfileService } from "../../../APi/EditProfile/EditProfileService";
+import { editProfileService } from "../../../../APi/EditProfile/EditProfileService";
 
 interface EditProfileServiceData {
   data: any;

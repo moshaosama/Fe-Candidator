@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../Store/store";
-import { useGetToken } from "../../../Hooks/useGetToken";
+import { AppDispatch, RootState } from "../../../../Store/store";
+import { useGetToken } from "../../../../Hooks/useGetToken";
 import { fetchGetSkill } from "../Actions/GetSkills";
 import { fetchCreateSkill } from "../Actions/CreateSkill";
-import { SkillData } from "../../../Types/CreateSkill";
+import { SkillData } from "../../../../Types/CreateSkill";
 
 const useSkillsData = () => {
   const [isOpenSkillModel, setIsOpenSkillModel] = useState(false);

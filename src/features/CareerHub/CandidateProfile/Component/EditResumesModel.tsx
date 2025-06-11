@@ -1,6 +1,6 @@
 import { CiFileOn } from "react-icons/ci";
-import Model from "../../../Components/Model";
 import { useResumeContext } from "../Context/ResumeContext";
+import Model from "../../../../Components/Model";
 
 const EditResumes = () => {
   const { HandeClickBtn, handleTriggerEditResume } = useResumeContext();

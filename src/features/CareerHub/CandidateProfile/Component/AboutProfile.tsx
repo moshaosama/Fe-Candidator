@@ -1,6 +1,6 @@
 import { MdOutlineEdit } from "react-icons/md";
-import Model from "../../../Components/Model";
 import { useAboutProfile } from "../Hooks/useAboutProfile";
+import Model from "../../../../Components/Model";
 
 const AboutProfile = () => {
   const {

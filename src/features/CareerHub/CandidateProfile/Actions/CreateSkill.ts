@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { editProfileService } from "../../../APi/EditProfile/EditProfileService";
-import { CreateSkillData } from "../../../Types/CreateSkill";
+import { CreateSkillData } from "../../../../Types/CreateSkill";
+import { editProfileService } from "../../../../APi/EditProfile/EditProfileService";
 
 export const fetchCreateSkill = createAsyncThunk(
   "EditProfile/fetchCreateSkill",
