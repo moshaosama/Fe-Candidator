@@ -7,3 +7,10 @@ export const fetchCreateSavedJob = createAsyncThunk(
     return savedJobService.createNewData(jobId, thunkAPI);
   }
 );
+
+export const fetchDeleteSavedJob = createAsyncThunk(
+  "ApplyJob/fetchDeleteSavedJob",
+  async (jobId: number, thunkAPI) => {
+    return savedJobService.DeleteSavedJob(jobId, thunkAPI);
+  }
+);
