@@ -1,10 +1,12 @@
 import { CiFileOn } from "react-icons/ci";
 import { useResumeContext } from "../Context/ResumeContext";
 import Model from "../../../../Components/Model";
+import useGetResumes from "../Hooks/useGetResumes";
+import { MdDelete } from "react-icons/md";
 
 const EditResumes = () => {
   const { HandeClickBtn, handleTriggerEditResume } = useResumeContext();
-
+  const { Resumes } = useGetResumes();
   return (
     <>
       <Model
@@ -28,14 +30,25 @@ const EditResumes = () => {
           </p>
           <div className="mt-3 border-2 p-5 rounded-2xl border-gray-500 shadow-2xl">
             <h1 className="text-xl font-bold">CV</h1>
-            <div className="mt-5">
-              <div className="flex gap-3 items-center">
-                <CiFileOn />
-                <h1 className="underline text-blue-300 cursor-pointer">
-                  Mohamed Osama.pdf
-                </h1>
-              </div>
-              <p className="mx-7 text-sm text-gray-500 mt-1">May 27, 2025</p>
+            <div>
+              {Resumes?.resumes?.result?.map((resume) => (
+                <div className="flex justify-between items-center">
+                  <div className="mt-5">
+                    <div className="flex gap-3 items-center">
+                      <CiFileOn />
+                      <h1 className="underline text-blue-300 cursor-pointer">
+                        {resume.Resume}
+                      </h1>
+                    </div>
+                    <p className="mx-7 text-sm text-gray-500 mt-1">
+                      {resume.Date}
+                    </p>
+                  </div>
+                  <div>
+                    <MdDelete size={25} cursor={"pointer"} color="purple" />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import UserReducer from "../features/Login/Reducer/LoginSlice";
 import SavedJobsReducer from "../features/CareerHub/ApplicationCandidator/Reducer/SavedJobSlice";
 import SkillReducer from "../features/CareerHub/CandidateProfile/Reducer/EditProfileSlice";
 import ApplyJobReducer from "../features/CareerHub/JobsCandidatePage/Reducers/ApplyJobReducer";
+import resumesResucer from "../features/CareerHub/CandidateProfile/Reducer/ResumeSlice";
 export const store = configureStore({
   reducer: {
     recruiter: RecruiterReducer,
@@ -27,6 +28,7 @@ export const store = configureStore({
     savedJobs: SavedJobsReducer,
     Skill: SkillReducer,
     ApplyJob: ApplyJobReducer,
+    Resumes: resumesResucer,
   },
 });
 
