@@ -1,5 +1,6 @@
-import HeaderOverView from "../../../features/OverView/Components/HeaderOverFlow";
-import { TasksOverFlow } from "../../../features/OverView/Components/TasksOverFlow";
+import HeaderOverView from "../../../features/CareerHub/OverView/Components/HeaderOverFlow";
+import { TasksOverFlow } from "../../../features/CareerHub/OverView/Components/TasksOverFlow";
+
 
 const OverView = () => {
   return (

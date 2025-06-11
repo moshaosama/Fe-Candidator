@@ -22,15 +22,15 @@ import AddStageModelProvider from "../features/Stages/Context/useAddStageContext
 import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
 import { JobsAvaliable } from "../Pages/CareerHub/JobsAvaliable";
-import { ApplyJob } from "../features/JobsCandidatePage/Components/ApplyJob";
 import OverView from "../Pages/CareerHub/OverView";
 import { Split_My_Applications } from "../Pages/CareerHub/SplitmyApplication";
 import My_Application from "../Pages/CareerHub/myApplication";
 import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
-import { CreateJobFavProvider } from "../features/JobsCandidatePage/Context/CreatejobFavContext";
 import MyProfile from "../Pages/CareerHub/MyProfile";
-import ResumeProvider from "../features/CandidateProfile/Context/ResumeContext";
 import SettingsCandidate from "../Pages/CareerHub/SettingCandidate";
+import ResumeProvider from "../features/CareerHub/CandidateProfile/Context/ResumeContext";
+import { CreateJobFavProvider } from "../features/CareerHub/JobsCandidatePage/Context/CreatejobFavContext";
+import { ApplyJob } from "../features/CareerHub/JobsCandidatePage/Components/ApplyJob";
 
 const RouterPages = () => {
   const router = createBrowserRouter([

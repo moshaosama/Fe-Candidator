@@ -1,4 +1,4 @@
-import DisplaySavedJobsData from "../../../features/ApplicationCandidator/Components/DisplaySavedJobsData";
+import DisplaySavedJobsData from "../../../features/CareerHub/ApplicationCandidator/Components/DisplaySavedJobsData";
 
 const Saved_Jobs = () => {
   return (

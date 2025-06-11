@@ -1,5 +1,6 @@
-import { DisplayApplications } from "../../../features/ApplicationCandidator/Components/DisplayApplications";
-import { FilterationApplication } from "../../../features/ApplicationCandidator/Components/FilterationJobs";
+import { DisplayApplications } from "../../../features/CareerHub/ApplicationCandidator/Components/DisplayApplications";
+import { FilterationApplication } from "../../../features/CareerHub/ApplicationCandidator/Components/FilterationJobs";
+
 
 const My_Application = () => {
   return (

@@ -9,9 +9,9 @@ import {
 import StagesReducer from "../features/Stages/Reducer/StageSlice";
 import CandidatorReducer from "../features/Candidates/Reducer/Candidator";
 import UserReducer from "../features/Login/Reducer/LoginSlice";
-import SavedJobsReducer from "../features/ApplicationCandidator/Reducer/SavedJobSlice";
-import SkillReducer from "../features/CandidateProfile/Reducer/EditProfileSlice";
-import ApplyJobReducer from "../features/JobsCandidatePage/Reducers/ApplyJobReducer";
+import SavedJobsReducer from "../features/CareerHub/ApplicationCandidator/Reducer/SavedJobSlice";
+import SkillReducer from "../features/CareerHub/CandidateProfile/Reducer/EditProfileSlice";
+import ApplyJobReducer from "../features/CareerHub/JobsCandidatePage/Reducers/ApplyJobReducer";
 export const store = configureStore({
   reducer: {
     recruiter: RecruiterReducer,

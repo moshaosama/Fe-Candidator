@@ -1,10 +1,11 @@
-import AboutProfile from "../../../features/CandidateProfile/Component/AboutProfile";
-import DetaiilsProfile from "../../../features/CandidateProfile/Component/DetaiilsProfile";
-import EducationProfile from "../../../features/CandidateProfile/Component/EducationProfile";
-import HeaderProfile from "../../../features/CandidateProfile/Component/HeaderProfile";
-import { ResumesProfile } from "../../../features/CandidateProfile/Component/ResumesProfile";
-import SkiilsProfile from "../../../features/CandidateProfile/Component/SkiilsProfile";
-import { WorkExperienceProfile } from "../../../features/CandidateProfile/Component/WorkExperienceProfile";
+import AboutProfile from "../../../features/CareerHub/CandidateProfile/Component/AboutProfile";
+import DetaiilsProfile from "../../../features/CareerHub/CandidateProfile/Component/DetaiilsProfile";
+import EducationProfile from "../../../features/CareerHub/CandidateProfile/Component/EducationProfile";
+import HeaderProfile from "../../../features/CareerHub/CandidateProfile/Component/HeaderProfile";
+import { ResumesProfile } from "../../../features/CareerHub/CandidateProfile/Component/ResumesProfile";
+import SkiilsProfile from "../../../features/CareerHub/CandidateProfile/Component/SkiilsProfile";
+import { WorkExperienceProfile } from "../../../features/CareerHub/CandidateProfile/Component/WorkExperienceProfile";
+
 
 const MyProfile = () => {
   return (
