@@ -30,6 +30,7 @@ import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
 import { CreateJobFavProvider } from "../features/JobsCandidatePage/Context/CreatejobFavContext";
 import MyProfile from "../Pages/CareerHub/MyProfile";
 import ResumeProvider from "../features/CandidateProfile/Context/ResumeContext";
+import SettingsCandidate from "../Pages/CareerHub/SettingCandidate";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -132,6 +133,10 @@ const RouterPages = () => {
           children: [
             {
               index: true,
+            },
+            {
+              path: "settings",
+              element: <SettingsCandidate />,
             },
             {
               path: "",

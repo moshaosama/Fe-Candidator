@@ -6,7 +6,7 @@ import useGetPathName from "../Hooks/useGetIsRegister";
 import { useGetToken } from "../Hooks/useGetToken";
 import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
-import ViewCandidatorPage from "../Pages/CareerHub/CandidatorPage";
+import LayoutCandidatePages from "../Pages/CareerHub/LayoutPage";
 
 export const LayoutByRoleFactory = () => {
   const { User } = useGetToken();
@@ -24,7 +24,7 @@ export const LayoutByRoleFactory = () => {
         navigate("/careerhub/overview");
       }
     }, [User, pathname, navigate]);
-    return <ViewCandidatorPage />;
+    return <LayoutCandidatePages />;
   } else {
     {
       return isRegister ? (
