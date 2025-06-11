@@ -20,6 +20,17 @@ class SavedJobService extends ParentService {
       return thunkAPI.rejectWithValue(error as string);
     }
   }
+
+  async DeleteSavedJob(job_id: number, thunkAPI: any) {
+    try {
+      const response = await axios.delete(
+        `${this.url}/delete-saved-jobs/${job_id}`
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
 }
 
 export const savedJobService = new SavedJobService();
