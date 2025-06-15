@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchApplyJob, fetchGetApplyJobs } from "../Actions/ApplyJob";
+import {
+  fetchApplyJob,
+  fetchGetApplyJobByCandidate,
+} from "../Actions/ApplyJob";
 import { useGetToken } from "../../../../Hooks/useGetToken";
 import { RootState, AppDispatch } from "../../../../Store/store";
 import useGetData from "../../../Jobs/Hooks/useGetData";
@@ -27,7 +30,7 @@ export const useApplyJob = () => {
   } = useForm();
 
   useEffect(() => {
-    dispatch(fetchGetApplyJobs(User?.result?.id));
+    dispatch(fetchGetApplyJobByCandidate(User?.result?.id));
   }, [dispatch]);
 
   useEffect(() => {

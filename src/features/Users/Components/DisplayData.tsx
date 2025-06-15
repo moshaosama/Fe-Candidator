@@ -3,7 +3,6 @@ import { ContactDataDto, RecruiterDataDto } from "../Types/DataDTO";
 
 const DisplayData = () => {
   const { Contact, Recruiter } = useGetData();
-  console.log(Recruiter);
 
   return (
     <>

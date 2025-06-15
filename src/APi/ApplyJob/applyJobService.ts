@@ -11,11 +11,21 @@ class ApplyJobService extends ParentService {
       return thunkAPI.rejectWithValue(error);
     }
   }
-  async getAllData(candidator_id?: any, thunkAPI?: any) {
+
+  async getAllDatabyCandidator(candidator_id?: any, thunkAPI?: any) {
     try {
       const response = await axios.get(
         `${this.url}/get-apply-job/${candidator_id}`
       );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+
+  async getAllData(_: any, thunkAPI?: any) {
+    try {
+      const response = await axios.get(`${this.url}/get-apply-job`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

@@ -1,16 +1,16 @@
 import { ReactNode } from "react";
 import { Outlet } from "react-router";
 import { clsx } from "clsx";
-import { useDashboardContext } from "../../Components/Dashboard/Context/DashboardContext";
-import SidebarResponsive from "../../Components/Sidebar/SidebarResponsive";
+import SidebarResponsive from "../Sidebar/SidebarResponsive";
+import { useHeaderContext } from "../Header/Context/HeaderContext";
 
 interface SplitLayoutProps {
   children: [ReactNode, ReactNode];
 }
 
 const SplitLayout = ({ children }: SplitLayoutProps) => {
-  const [Dashboard, Sidebar] = children;
-  const { Active } = useDashboardContext();
+  const [Header, Sidebar] = children;
+  const { Active } = useHeaderContext();
 
   return (
     <div className="flex gap-10">
@@ -28,7 +28,7 @@ const SplitLayout = ({ children }: SplitLayoutProps) => {
       </div>
       <div className="flex flex-col w-full mr-20">
         <div className="rounded-2xl my-5 max-sm:w-[50vh] max-sm:mx-2 bg-gradient-to-r h-fit from-purple-700 to-50% border-1 border-white flex">
-          {Dashboard}
+          {Header}
         </div>
         <div className="max-sm:mx-2">
           <Outlet />

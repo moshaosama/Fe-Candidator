@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../Store/store";
 import { useEffect } from "react";
-import { fetchGetApplyJobs } from "../../JobsCandidatePage/Actions/ApplyJob";
+import { fetchGetApplyJobByCandidate } from "../../JobsCandidatePage/Actions/ApplyJob";
 import { useGetToken } from "../../../../Hooks/useGetToken";
 
 const useGetApplications = () => {
@@ -12,7 +12,7 @@ const useGetApplications = () => {
   const { User } = useGetToken();
 
   useEffect(() => {
-    dispatch(fetchGetApplyJobs(User?.result?.id));
+    dispatch(fetchGetApplyJobByCandidate(User?.result?.id));
   }, [dispatch]);
 
   return { jobApplication };

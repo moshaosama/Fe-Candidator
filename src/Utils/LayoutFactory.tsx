@@ -1,5 +1,3 @@
-import Dashboard from "../Components/Dashboard";
-import Sidebar from "../Components/Sidebar";
 import SplitLayout from "../Layout/SplitLayout";
 import HasAccountFactory from "./HasAccountFactory";
 import useGetPathName from "../Hooks/useGetIsRegister";
@@ -7,6 +5,8 @@ import { useGetToken } from "../Hooks/useGetToken";
 import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 import LayoutCandidatePages from "../Pages/CareerHub/LayoutPage";
+import Header from "../Layout/Header";
+import Sidebar from "../Layout/Sidebar";
 
 export const LayoutByRoleFactory = () => {
   const { User } = useGetToken();
@@ -31,7 +31,7 @@ export const LayoutByRoleFactory = () => {
         <HasAccountFactory />
       ) : (
         <SplitLayout>
-          <Dashboard />
+          <Header />
           <Sidebar />
         </SplitLayout>
       );

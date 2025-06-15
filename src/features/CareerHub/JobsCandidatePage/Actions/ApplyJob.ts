@@ -8,9 +8,16 @@ export const fetchApplyJob = createAsyncThunk(
   }
 );
 
-export const fetchGetApplyJobs = createAsyncThunk(
+export const fetchGetApplyJobByCandidate = createAsyncThunk(
   "ApplyJob/fetchGetApplyJobs",
   (candidator_id: any, thunkAPi: any) => {
-    return applyJobService.getAllData(candidator_id, thunkAPi);
+    return applyJobService.getAllDatabyCandidator(candidator_id, thunkAPi);
+  }
+);
+
+export const fetchAllGetApplyJob = createAsyncThunk(
+  "ApplyJob/fetchAllGetApplyJob",
+  (_?: any, thunkAPi?: any) => {
+    return applyJobService.getAllData(_, thunkAPi);
   }
 );

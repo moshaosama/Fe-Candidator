@@ -22,6 +22,7 @@ import AddStageModelProvider from "../features/Stages/Context/useAddStageContext
 import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
 import { carrerHub_Router } from "./CarrerHub/Carrerhub-router";
+import Dashboard from "../Pages/Dashboard";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const RouterPages = () => {
         {
           path: "tasks",
           element: <Tasks />,
+        },
+        {
+          path: "dashboard",
+          element: <Dashboard />,
         },
         {
           path: "accounts",

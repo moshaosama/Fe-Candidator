@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchApplyJob, fetchGetApplyJobs } from "../Actions/ApplyJob";
+import {
+  fetchAllGetApplyJob,
+  fetchApplyJob,
+  fetchGetApplyJobByCandidate,
+} from "../Actions/ApplyJob";
 
 const initialState = {
   ApplyJob: {},
@@ -22,14 +26,26 @@ const ApplyJobSlice = createSlice({
       state.loading = false;
       state.error = action.payload as string;
     });
-    builder.addCase(fetchGetApplyJobs.pending, (state) => {
+    builder.addCase(fetchGetApplyJobByCandidate.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchGetApplyJobs.fulfilled, (state, action) => {
+    builder.addCase(fetchGetApplyJobByCandidate.fulfilled, (state, action) => {
       state.loading = false;
       state.ApplyJob = action.payload;
     });
-    builder.addCase(fetchGetApplyJobs.rejected, (state, action) => {
+    builder.addCase(fetchGetApplyJobByCandidate.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+
+    builder.addCase(fetchAllGetApplyJob.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchAllGetApplyJob.fulfilled, (state, action) => {
+      state.loading = false;
+      state.ApplyJob = action.payload;
+    });
+    builder.addCase(fetchAllGetApplyJob.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
     });

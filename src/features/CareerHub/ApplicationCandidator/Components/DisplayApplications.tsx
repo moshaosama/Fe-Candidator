@@ -6,8 +6,6 @@ export const DisplayApplications = () => {
   const { jobApplication } = useGetApplications();
   const { CandidateById } = useGetCandidateById();
 
-  console.log(jobApplication?.ApplyJob?.result);
-
   return (
     <>
       {jobApplication?.ApplyJob?.result?.length > 0 ? (
