@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import Header from "../../../features/Candidates/Components/CandidatorPage/Header";
-import { Footer } from "../../../features/Candidates/Components/CandidatorPage/Footer";
+import Header from "../../../features/CareerHub/CandidatorPage/Componnets/Header";
+import { Footer } from "../../../features/CareerHub/CandidatorPage/Componnets/Footer";
 
 const LayoutCandidatePages = () => {
   return (

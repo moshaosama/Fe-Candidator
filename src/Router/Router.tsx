@@ -21,16 +21,7 @@ import AddCandidateModelProvider from "../features/Stages/Context/useAddCandidat
 import AddStageModelProvider from "../features/Stages/Context/useAddStageContext";
 import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
-import { JobsAvaliable } from "../Pages/CareerHub/JobsAvaliable";
-import OverView from "../Pages/CareerHub/OverView";
-import { Split_My_Applications } from "../Pages/CareerHub/SplitmyApplication";
-import My_Application from "../Pages/CareerHub/myApplication";
-import Saved_Jobs from "../Pages/CareerHub/SavedJobs";
-import MyProfile from "../Pages/CareerHub/MyProfile";
-import SettingsCandidate from "../Pages/CareerHub/SettingCandidate";
-import ResumeProvider from "../features/CareerHub/CandidateProfile/Context/ResumeContext";
-import { CreateJobFavProvider } from "../features/CareerHub/JobsCandidatePage/Context/CreatejobFavContext";
-import { ApplyJob } from "../features/CareerHub/JobsCandidatePage/Components/ApplyJob";
+import { carrerHub_Router } from "./CarrerHub/Carrerhub-router";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -127,63 +118,7 @@ const RouterPages = () => {
           path: "roles",
           element: <Roles />,
         },
-
-        {
-          path: "careerhub",
-          children: [
-            {
-              index: true,
-            },
-            {
-              path: "settings",
-              element: <SettingsCandidate />,
-            },
-            {
-              path: "",
-              element: <Split_My_Applications />,
-              children: [
-                {
-                  path: "applications",
-                  element: <My_Application />,
-                },
-                {
-                  path: "saved_jobs",
-                  element: <Saved_Jobs />,
-                },
-              ],
-            },
-            {
-              path: "me/edit",
-              element: (
-                <ResumeProvider>
-                  <MyProfile />
-                </ResumeProvider>
-              ),
-            },
-            {
-              path: "overview",
-              element: <OverView />,
-            },
-            {
-              path: "jobs",
-              element: (
-                <CreateJobFavProvider>
-                  <JobsAvaliable />
-                </CreateJobFavProvider>
-              ),
-              children: [
-                {
-                  path: ":jobId",
-                  element: (
-                    <CreateJobFavProvider>
-                      <ApplyJob />
-                    </CreateJobFavProvider>
-                  ),
-                },
-              ],
-            },
-          ],
-        },
+        carrerHub_Router,
       ],
     },
   ]);
