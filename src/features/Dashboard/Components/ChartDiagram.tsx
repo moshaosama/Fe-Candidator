@@ -28,7 +28,7 @@ const ChartDiagram = () => {
           ]}
           series={[{ dataKey: "count", label: "Company Count" }]}
           height={200}
-          colors={["red"]}
+          colors={["#8200db"]}
         />
       </div>
     </div>

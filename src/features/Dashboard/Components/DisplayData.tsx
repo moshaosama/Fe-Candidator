@@ -1,13 +1,14 @@
 import { CardDashboardData } from "../../../Components/CardDashboardData";
 import { useGetCandidator } from "../../Candidates/Hooks/useGetCandidator";
-
-import useGetCompanyData from "../../Companies/Hooks/useGetCompanyData";
+import useGetCompany from "../Hooks/ueGetCompany";
 import useGetData from "../../Users/Hook/useGetData";
 import useGetAppliedCandidate from "../Hooks/useGetAppliedCandidate";
 
 const DisplayData = () => {
   const { Contact, Recruiter } = useGetData();
-  const { Company } = useGetCompanyData();
+  const { CompanyData } = useGetCompany();
+  console.log(CompanyData);
+
   const { Candidator } = useGetCandidator();
   const { AppliedCandidate } = useGetAppliedCandidate();
   return (
@@ -24,7 +25,7 @@ const DisplayData = () => {
       />
       <CardDashboardData
         Title="Company"
-        numofData={Company?.company?.result?.length}
+        numofData={CompanyData?.result?.length}
       />
       <CardDashboardData
         Title="Contacts"
