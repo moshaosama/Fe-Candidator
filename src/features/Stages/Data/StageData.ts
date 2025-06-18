@@ -6,9 +6,6 @@ export const StageData = [
     name: "Last Name",
   },
   {
-    name: "Email",
-  },
-  {
     name: "Linkedin URL",
   },
   {
