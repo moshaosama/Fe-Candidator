@@ -23,6 +23,7 @@ import Users from "../Pages/Users";
 import Candidates from "../Pages/Candidates";
 import { carrerHub_Router } from "./CarrerHub/Carrerhub-router";
 import Dashboard from "../Pages/Dashboard";
+import SettingPage from "../Pages/Settings_";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const RouterPages = () => {
         {
           path: "tasks",
           element: <Tasks />,
+        },
+        {
+          path: "settings",
+          element: <SettingPage />,
         },
         {
           path: "dashboard",
