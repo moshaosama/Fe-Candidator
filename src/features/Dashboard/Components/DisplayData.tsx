@@ -7,7 +7,6 @@ import useGetAppliedCandidate from "../Hooks/useGetAppliedCandidate";
 const DisplayData = () => {
   const { Contact, Recruiter } = useGetData();
   const { CompanyData } = useGetCompany();
-  console.log(CompanyData);
 
   const { Candidator } = useGetCandidator();
   const { AppliedCandidate } = useGetAppliedCandidate();
