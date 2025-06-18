@@ -24,7 +24,7 @@ class CandidateService extends ParentService {
   async getCandidateByStage(data: any, ThunkApi: any) {
     try {
       const response = await axios.get(
-        `${this.url}/get-candidate-by-stage/${data.jobId}/${data.stageTitle}`
+        `${this.url}/get-candidate-by-stage/by-stage/${data.stageTitle}/${data.jobId}`
       );
       return response.data;
     } catch (error) {
