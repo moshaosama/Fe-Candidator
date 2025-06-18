@@ -11,6 +11,8 @@ import AddStageModel from "../../features/Stages/Components/AddStageModel";
 const Stages = () => {
   const { AddModal, handleClickAddModal } = useAddCandidateModelContext();
   const { candidatorByStage } = useGetCandidateByStage();
+  console.log(candidatorByStage);
+
   const { OpenModel, handleClickAddStageModel } = useAddStageModelContext();
   return (
     <>
