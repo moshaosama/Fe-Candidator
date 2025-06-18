@@ -19,9 +19,20 @@ class JobService extends ParentService {
       return thunkAPI.rejectWithValue(error as string);
     }
   }
-  async getJobById(jobId: number, thunkAPI: any) {
+  async getJobById(job_id: number, thunkAPI: any) {
     try {
-      const response = await axios.get(`${this.url}/get-job-by-id/${jobId}`);
+      const response = await axios.get(`${this.url}/get-job-by-id/${job_id}`);
+      return response.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err as string);
+    }
+  }
+
+  async getJobByCompanyID(company_id: number, thunkAPI: any) {
+    try {
+      const response = await axios.get(
+        `${this.url}/get-job-by-company-id/${company_id}`
+      );
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err as string);
