@@ -5,6 +5,7 @@ import { fetchGetJobByID } from "../Actions/GetJobById";
 import { useParams } from "react-router";
 const useGetJobById = () => {
   const { jobId } = useParams();
+
   const jobByID: any = useSelector((state: RootState) => state.jobByid);
   const dispatch = useDispatch<AppDispatch>();
 
