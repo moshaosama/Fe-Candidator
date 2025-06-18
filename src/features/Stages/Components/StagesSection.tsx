@@ -5,6 +5,7 @@ import useGetCandidateByStage from "../Hooks/useGetCandidateByStage";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import DropDownStage from "./DropDownStage";
 import useOpenDropDown from "../Hooks/useOpenDropDown";
+import clsx from "clsx";
 interface DefaultStage {
   stageTitle: string;
   id: number;
@@ -36,7 +37,10 @@ const StagesSection = () => {
         <div className="relative">
           {stages?.map((defStage: DefaultStage) => (
             <div
-              className="cursor-pointer hover:bg-[#3f37c9] rounded-xl hover:rounded-none transition-all duration-300"
+              className={clsx(
+                defStage.stageTitle == "Pending" ? "Active" : "",
+                "cursor-pointer hover:bg-[#383663] rounded-xl hover:rounded-none transition-all duration-300"
+              )}
               key={defStage.id}
               onClick={(e: any) => handleClick(defStage.stageTitle, e)}
             >
