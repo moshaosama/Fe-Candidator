@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import ButtonModel from "./ButtonModel";
 import DeleteModal from "./DeleteModal";
+import clsx from "clsx";
+import { useToggleTheme } from "../Context/useToggleThemeContext";
 
 interface SearchBarProps {
   Title: string;
@@ -17,11 +19,15 @@ const SearchBar = ({
   handleDelete,
   children,
 }: SearchBarProps) => {
+  const { Theme } = useToggleTheme();
   return (
     <div className="flex justify-between">
       <input
         type="text"
-        className="border-gray-700 w-52 max-sm:w-32 border-1 h-10 rounded-xl text-gray-400 text-sm px-2"
+        className={clsx(
+          "border-gray-700 w-52 max-sm:w-32 border-1 h-10 rounded-xl text-sm px-2",
+          Theme == "dark" ? "text-gray-400 " : "bg-[#a5a4a4ab] text-black"
+        )}
         placeholder="Search"
       />
       <div className="flex items-center gap-4">

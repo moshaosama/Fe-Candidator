@@ -1,10 +1,19 @@
 import { CiLight } from "react-icons/ci";
 import { RxPerson } from "react-icons/rx";
+import { Link } from "react-router";
+import { useToggleTheme } from "../../../Context/useToggleThemeContext";
+import clsx from "clsx";
 
 const Settings = () => {
+  const { handleToggleTheme, Theme } = useToggleTheme();
   return (
     <>
-      <div className="text-white ml-10">
+      <div
+        className={clsx(
+          " ml-10",
+          Theme == "dark" ? "text-white" : "text-black"
+        )}
+      >
         <div>
           <h1 className="text-3xl font-bold">Settings</h1>
         </div>
@@ -27,7 +36,10 @@ const Settings = () => {
 
           <div>
             <h1 className="text-xl font-bold">Display</h1>
-            <div className="flex items-center gap-10 mt-3 cursor-pointer border-2 p-2 hover:bg-gray-700 transition-all duration-700 rounded-xl shadow-lg shadow-black ">
+            <div
+              onClick={handleToggleTheme}
+              className="flex items-center gap-10 mt-3 cursor-pointer border-2 p-2 hover:bg-gray-700 transition-all duration-700 rounded-xl shadow-lg shadow-black "
+            >
               <CiLight
                 size={25}
                 className="bg-gray-400 w-10 h-10 p-2 rounded-full"
@@ -42,19 +54,21 @@ const Settings = () => {
 
           <div>
             <h1 className="text-xl font-bold">Subscriptions</h1>
-            <div className="flex items-center gap-10 mt-3 cursor-pointer border-2 p-2 hover:bg-gray-700 transition-all duration-700 rounded-xl shadow-lg shadow-black ">
-              <RxPerson
-                size={25}
-                className="bg-gray-400 w-10 h-10 p-2 rounded-full"
-              />
+            <Link to={"/dashboard"}>
+              <div className="flex items-center gap-10 mt-3 cursor-pointer border-2 p-2 hover:bg-gray-700 transition-all duration-700 rounded-xl shadow-lg shadow-black ">
+                <RxPerson
+                  size={25}
+                  className="bg-gray-400 w-10 h-10 p-2 rounded-full"
+                />
 
-              <div>
-                <h1 className="text-lg font-semibold">
-                  Subscriptions Management
-                </h1>
-                <p>Manage your current subscriptions</p>
+                <div>
+                  <h1 className="text-lg font-semibold">
+                    Subscriptions Management
+                  </h1>
+                  <p>Manage your current subscriptions</p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div>

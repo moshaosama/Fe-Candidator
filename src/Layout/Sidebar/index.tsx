@@ -15,14 +15,21 @@ import { TbCircleLetterMFilled } from "react-icons/tb";
 import { NavLink } from "react-router";
 import { clsx } from "clsx";
 import { useHeaderContext } from "../Header/Context/HeaderContext";
+import { useToggleTheme } from "../../Context/useToggleThemeContext";
 
 const Sidebar = () => {
   const { Active } = useHeaderContext();
+  const { Theme } = useToggleTheme();
   return (
     <div className="flex flex-col justify-between items-center">
       <div className="my-5 flex flex-col  items-center gap-10">
         <TbCircleLetterMFilled className="text-white text-3xl" />
-        <div className="text-white text-xl flex flex-col gap-7 ">
+        <div
+          className={clsx(
+            " text-xl flex flex-col gap-7 ",
+            Theme == "dark" ? "text-white" : "text-black"
+          )}
+        >
           <NavLink to={"/"} className="flex items-center gap-3 cursor-pointer">
             <PiUsersThreeBold />
             <label className={clsx(Active == "Active" ? "" : "hidden")}>
@@ -94,7 +101,12 @@ const Sidebar = () => {
           </NavLink>
         </div>
       </div>
-      <div className="mb-5 text-white text-xl flex flex-col gap-7 ">
+      <div
+        className={clsx(
+          "mb-5 text-xl flex flex-col gap-7 ",
+          Theme == "dark" ? "text-white" : "text-black"
+        )}
+      >
         <NavLink
           to={"/dashboard"}
           className="flex items-center gap-3 cursor-pointer"
