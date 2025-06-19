@@ -1,8 +1,11 @@
+import clsx from "clsx";
 import useGetContact from "../../Jobs/Hooks/useGetData";
 import { ContactData } from "../Types/ContactData";
+import { useToggleTheme } from "../../../Context/useToggleThemeContext";
 
 const DisplayData = () => {
   const { Contact } = useGetContact();
+  const { Theme } = useToggleTheme();
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -10,7 +13,10 @@ const DisplayData = () => {
           (contact: ContactData, index: number) => (
             <div
               key={index}
-              className="grid grid-cols-5 p-4 bg-[#272727ab] rounded-lg text-white font-semibold max-sm:text-[10px]"
+              className={clsx(
+                "grid grid-cols-5 p-4  rounded-lg  font-semibold max-sm:text-[10px]",
+                Theme == "dark" ? "bg-[#272727ab] text-white" : "bg-[#a5a4a4ab]"
+              )}
             >
               <div className="flex items-center gap-3">
                 <input
