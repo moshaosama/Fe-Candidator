@@ -7,7 +7,7 @@ const SidebarSetting = () => {
   const { handleClick } = useSetActive();
   return (
     <>
-      <div className="mx-10 mt-10 bg-white w-60 rounded-xl shadow-2xl shadow-black">
+      <div className="mx-10 mt-10 h-fit bg-white w-60 rounded-xl shadow-2xl shadow-black">
         <Link to={"/settings/account-setting"}>
           <div
             onClick={handleClick}
