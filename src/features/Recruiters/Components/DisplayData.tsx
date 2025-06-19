@@ -1,6 +1,8 @@
+import clsx from "clsx";
 import { useGetRecruiterIDContext } from "../Context/useGetRecruiterIDContext";
 import useDisplayData from "../Hooks/useDisplayData";
 import { RecruiterData } from "../Types/RecruiterData";
+import { useToggleTheme } from "../../../Context/useToggleThemeContext";
 
 interface DisplayDataProps {
   handleChecked: () => void;
@@ -9,12 +11,15 @@ interface DisplayDataProps {
 const DisplayData = ({ handleChecked }: DisplayDataProps) => {
   const { recruiter } = useDisplayData();
   const { handleGetId } = useGetRecruiterIDContext();
-
+  const { Theme } = useToggleTheme();
   return (
     <>
       {recruiter.map((recruiter: RecruiterData, index: number) => (
         <div
-          className="bg-[#272727ab] mt-3 py-5 px-4 rounded-lg cursor-pointer"
+          className={clsx(
+            " mt-3 py-5 px-4 rounded-lg cursor-pointer",
+            Theme == "dark" ? "bg-[#272727ab]" : "bg-[#a5a4a4ab]"
+          )}
           key={index}
         >
           <div className="grid grid-cols-4 text-white max-sm:text-[10px]">
