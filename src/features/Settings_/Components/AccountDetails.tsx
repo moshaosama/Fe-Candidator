@@ -4,13 +4,15 @@ import SidebarSetting from "./SidebarSetting";
 const AccountDetails = () => {
   return (
     <>
-      <div>
+      <div className="w-full">
         <h1 className="text-white font-bold text-3xl mt-10 ml-10 ">
           Account Settings
         </h1>
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-5">
           <SidebarSetting />
-          <Outlet />
+          <div className="mt-10">
+            <Outlet />
+          </div>
         </div>
       </div>
     </>
