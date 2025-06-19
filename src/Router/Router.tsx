@@ -24,6 +24,10 @@ import Candidates from "../Pages/Candidates";
 import { carrerHub_Router } from "./CarrerHub/Carrerhub-router";
 import Dashboard from "../Pages/Dashboard";
 import SettingPage from "../Pages/Settings_";
+import Account_Settngs from "../Pages/AccountSettings";
+import AccountDetails from "../features/Settings_/Components/AccountDetails";
+import ChangePassword from "../features/Settings_/Components/ChangePassword";
+import ProfileSettings from "../features/Settings_/Components/ProfileSettings";
 
 const RouterPages = () => {
   const router = createBrowserRouter([
@@ -46,7 +50,26 @@ const RouterPages = () => {
         },
         {
           path: "settings",
-          element: <SettingPage />,
+          children: [
+            {
+              index: true,
+              element: <SettingPage />,
+            },
+            {
+              path: "account-setting",
+              element: <AccountDetails />,
+              children: [
+                {
+                  index: true,
+                  element: <ProfileSettings />,
+                },
+                {
+                  path: "change-password",
+                  element: <ChangePassword />,
+                },
+              ],
+            },
+          ],
         },
         {
           path: "dashboard",
