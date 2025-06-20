@@ -6,6 +6,11 @@ export interface UpdateProfileData {
   Email: string;
 }
 
+export interface ChangePasswordData {
+  old_password: string;
+  new_password: string;
+}
+
 class ChangeProfileService {
   User = JSON.parse(window.localStorage.getItem("User")!);
 
@@ -14,6 +19,18 @@ class ChangeProfileService {
     try {
       const response = await axios.put(
         `${this.url}/update-user/${this.User?.result?.id}`,
+        data
+      );
+      return response.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err as string);
+    }
+  }
+
+  async ChangePassword(data: ChangePasswordData, thunkAPI: any) {
+    try {
+      const response = await axios.put(
+        `${this.url}/change-password/${this.User?.result?.id}`,
         data
       );
       return response.data;
