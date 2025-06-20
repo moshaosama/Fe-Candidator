@@ -1,4 +1,4 @@
-import { useGetToken } from "../../../Hooks/useGetToken";
+import clsx from "clsx";
 import useChangeProfileUser from "../Hooks/useChangeProfileUser";
 
 const ProfileSettings = () => {
@@ -6,6 +6,8 @@ const ProfileSettings = () => {
     handleChangeProfileUser,
     handleSubmitChangeProfile,
     registerChangeProfile,
+
+    isChange,
   } = useChangeProfileUser();
   return (
     <>
@@ -31,7 +33,7 @@ const ProfileSettings = () => {
             />
           </p>
           <p className="col-span-1 flex flex-col gap-3">
-            <label className="text-white font-bold mx-1">FirstName</label>
+            <label className="text-white font-bold mx-1">LastName</label>
             <input
               type="text"
               className="border-2 rounded-xl border-gray-500 p-2"
@@ -47,7 +49,15 @@ const ProfileSettings = () => {
             />
           </p>
           <p className="col-span-2 flex flex-col items-start gap-3 my-5">
-            <button className="bg-white w-32 py-2 rounded-xl text-black font-bold hover:bg-gray-300 cursor-pointer transition-all duration-700">
+            <button
+              disabled={isChange}
+              className={clsx(
+                "w-32 py-2 rounded-xl text-black font-bold transition-all duration-700",
+                isChange
+                  ? "bg-gray-200 cursor-not-allowed"
+                  : "bg-white hover:bg-gray-300 cursor-pointer"
+              )}
+            >
               Save Change
             </button>
           </p>
