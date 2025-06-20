@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useGetToken } from "../../../Hooks/useGetToken";
 import useChangeProfileUser from "../Hooks/useChangeProfileUser";
 
@@ -7,6 +8,7 @@ const ChangePassword = () => {
     registerChangePassword,
     handleSubmitChangePassword,
     handleChangePassword,
+    isChange,
   } = useChangeProfileUser();
   return (
     <>
@@ -47,7 +49,13 @@ const ChangePassword = () => {
               />
             </p>
             <p className="col-span-2">
-              <button className="w-24 rounded-xl cursor-pointer hover:bg-[#cc7fff] transition-all duration-300 hover:scale-105 bg-[#8200db] py-2">
+              <button
+                disabled={isChange}
+                className={clsx(
+                  "w-24 rounded-xl  hover:bg-[#cc7fff] transition-all duration-300 hover:scale-105 bg-[#8200db] py-2",
+                  isChange ? "cursor-not-allowed" : "cursor-pointer"
+                )}
+              >
                 Submit
               </button>
             </p>
