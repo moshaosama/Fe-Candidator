@@ -34,48 +34,56 @@ const SidebarResponsive = () => {
         <NavLink
           to={"/"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Users
         </NavLink>
         <NavLink
           to={"/accounts"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Accounts
         </NavLink>
         <NavLink
           to={"/recruiters"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Recruiters
         </NavLink>
         <NavLink
           to={"/contacts"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Contacts
         </NavLink>
         <NavLink
           to={"/candidates"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Candidates
         </NavLink>
         <NavLink
           to={"/companies"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Companies
         </NavLink>
         <NavLink
           to={"/roles"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Roles
         </NavLink>
         <NavLink
           to={"/tasks"}
           className="text-xl text-white font-bold border border-white py-2 px-2"
+          onClick={handleClickActive}
         >
           Tasks
         </NavLink>
