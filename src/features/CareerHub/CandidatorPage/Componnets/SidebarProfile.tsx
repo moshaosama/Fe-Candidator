@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import useLogout from "../Hooks/useLogout";
+import useLogout from "../../../../Hooks/useLogout";
 
 export const SidebarProfile = () => {
   const { handleLogout } = useLogout();
