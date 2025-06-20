@@ -25,14 +25,14 @@ const ChangePassword = () => {
             <p className="text-sm">{User?.result?.FirstName}</p>
           </div>
           <form
-            className="w-96 grid grid-cols-2 gap-5"
+            className="w-96 grid grid-cols-2 gap-5 max-sm:w-fit"
             onSubmit={handleSubmitChangePassword(handleChangePassword)}
           >
             <p className="col-span-2">
               <h1 className="text-xl font-bold">Old password</h1>
               <input
                 type="password"
-                className="w-[40pc] px-2 mt-2 h-14 rounded-xl border-2 border-gray-400"
+                className="w-[40pc] px-2 mt-2 h-14 rounded-xl border-2 border-gray-400 max-sm:w-80"
                 {...registerChangePassword("old_password", {
                   required: "Old_Password is required",
                 })}
@@ -42,7 +42,7 @@ const ChangePassword = () => {
               <h1 className="text-xl font-bold">Create new password</h1>
               <input
                 type="password"
-                className="w-[40pc] px-2 mt-2 h-14 rounded-xl border-2 border-gray-400"
+                className="w-[40pc] px-2 mt-2 h-14 rounded-xl border-2 border-gray-400 max-sm:w-80"
                 {...registerChangePassword("new_password", {
                   required: "New_Password is required",
                 })}
