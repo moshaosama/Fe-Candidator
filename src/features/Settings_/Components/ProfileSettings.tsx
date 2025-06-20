@@ -22,33 +22,39 @@ const ProfileSettings = () => {
 
         <form
           onSubmit={handleSubmitChangeProfile(handleChangeProfileUser)}
-          className="grid grid-cols-2 gap-3 mt-5 w-[43pc]"
+          className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 mt-5 w-[43pc] max-sm:w-fit"
         >
-          <p className="col-span-1 flex flex-col gap-3">
-            <label className="text-white font-bold mx-1">FirstName</label>
+          <p className="col-span-1 max-sm:col-span-2 flex flex-col gap-3 max-sm:w-fit">
+            <label className="text-white font-bold mx-1  max-sm:w-fit">
+              FirstName
+            </label>
             <input
               type="text"
-              className="border-2 rounded-xl border-gray-500 p-2"
+              className="border-2 rounded-xl border-gray-500 p-2 max-sm:w-80"
               {...registerChangeProfile("FirstName")}
             />
           </p>
-          <p className="col-span-1 flex flex-col gap-3">
-            <label className="text-white font-bold mx-1">LastName</label>
+          <p className="col-span-1 max-sm:col-span-2 flex flex-col gap-3 max-sm:w-fit">
+            <label className="text-white font-bold mx-1  max-sm:w-fit">
+              LastName
+            </label>
             <input
               type="text"
-              className="border-2 rounded-xl border-gray-500 p-2"
+              className="border-2 rounded-xl border-gray-500 p-2 max-sm:w-80"
               {...registerChangeProfile("LastName")}
             />
           </p>
-          <p className="col-span-2 flex flex-col gap-3">
-            <label className="text-white font-bold mx-1">Email</label>
+          <p className="col-span-2 flex flex-col gap-3 max-sm:w-fit">
+            <label className="text-white max-sm:w-fit font-bold mx-1">
+              Email
+            </label>
             <input
               type="email"
-              className="border-2 rounded-xl border-gray-500 p-2"
+              className="border-2 rounded-xl border-gray-500 p-2 max-sm:w-80"
               {...registerChangeProfile("Email")}
             />
           </p>
-          <p className="col-span-2 flex flex-col items-start gap-3 my-5">
+          <p className="col-span-2 flex flex-col items-start gap-3 my-5 max-sm:w-fit">
             <button
               disabled={isChange}
               className={clsx(
