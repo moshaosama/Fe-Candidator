@@ -2,9 +2,11 @@ import { useGetToken } from "../../../Hooks/useGetToken";
 import useChangeProfileUser from "../Hooks/useChangeProfileUser";
 
 const ProfileSettings = () => {
-  const { User } = useGetToken();
-  const { handleChangeProfileUser, handleSubmit, register } =
-    useChangeProfileUser();
+  const {
+    handleChangeProfileUser,
+    handleSubmitChangeProfile,
+    registerChangeProfile,
+  } = useChangeProfileUser();
   return (
     <>
       <div className="text-white">
@@ -17,7 +19,7 @@ const ProfileSettings = () => {
         </div>
 
         <form
-          onSubmit={handleSubmit(handleChangeProfileUser)}
+          onSubmit={handleSubmitChangeProfile(handleChangeProfileUser)}
           className="grid grid-cols-2 gap-3 mt-5 w-[43pc]"
         >
           <p className="col-span-1 flex flex-col gap-3">
@@ -25,7 +27,7 @@ const ProfileSettings = () => {
             <input
               type="text"
               className="border-2 rounded-xl border-gray-500 p-2"
-              {...register("FirstName")}
+              {...registerChangeProfile("FirstName")}
             />
           </p>
           <p className="col-span-1 flex flex-col gap-3">
@@ -33,7 +35,7 @@ const ProfileSettings = () => {
             <input
               type="text"
               className="border-2 rounded-xl border-gray-500 p-2"
-              {...register("LastName")}
+              {...registerChangeProfile("LastName")}
             />
           </p>
           <p className="col-span-2 flex flex-col gap-3">
@@ -41,7 +43,7 @@ const ProfileSettings = () => {
             <input
               type="email"
               className="border-2 rounded-xl border-gray-500 p-2"
-              {...register("Email")}
+              {...registerChangeProfile("Email")}
             />
           </p>
           <p className="col-span-2 flex flex-col items-start gap-3 my-5">
