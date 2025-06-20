@@ -18,7 +18,7 @@ const Settings = () => {
           <h1 className="text-3xl font-bold">Settings</h1>
         </div>
 
-        <div className="flex flex-col gap-14 mt-5  ml-10">
+        <div className="flex flex-col gap-14 mt-5  ml-10 max-sm:ml-0">
           <Link to={"account-setting"}>
             <div>
               <h1 className="text-xl font-bold">Account</h1>
