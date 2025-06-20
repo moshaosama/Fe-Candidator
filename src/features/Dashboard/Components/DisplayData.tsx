@@ -11,7 +11,7 @@ const DisplayData = () => {
   const { Candidator } = useGetCandidator();
   const { AppliedCandidate } = useGetAppliedCandidate();
   return (
-    <div className="grid grid-cols-5 gap-4 max-sm:grid-cols-1">
+    <div className="grid grid-cols-5 gap-4 max-sm:mx-5 max-sm:grid-cols-1">
       <CardDashboardData
         Title="Users"
         numofData={
