@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUpdateProfile } from "../Actions/UpdateProfile";
+import {
+  fetchChangePassword,
+  fetchUpdateProfile,
+} from "../Actions/UpdateProfile";
 
 const initialState = {
   newUser: "",
@@ -20,6 +23,17 @@ const UpdateProfileSlice = createSlice({
       state.newUser = action.payload;
     });
     builder.addCase(fetchUpdateProfile.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+    builder.addCase(fetchChangePassword.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchChangePassword.fulfilled, (state, action) => {
+      state.loading = false;
+      state.newUser = action.payload;
+    });
+    builder.addCase(fetchChangePassword.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
     });
